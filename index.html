@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
+    <title>Trying To Build A Blog</title>
+    <style>
+        .page_title {
+            text-align: center;
+        }
+
+        .nav_bar li{
+            list-style: none;
+            display: inline-block;
+        }
+
+        .nav_bar li::after{
+            content:"/";
+            margin: 1.5em;
+        }
+
+        .active{        
+                
+            padding-bottom: 10px;
+            border-bottom:3px solid deepskyblue;
+            color:black !important;
+        }
+
+        .nav_bar a:link{
+            text-decoration: none;
+        }
+
+        .nav_bar a:visited{
+            text-decoration: none;
+            color:gray;
+        }
+
+        .nav_bar a:hover{
+            padding-bottom: 10px;
+            border-bottom:3px solid deepskyblue;
+            color:black;
+        }
+
+        .nav_bar .nav_bar_end::after{
+            content: " ";
+        }
+
+
+    </style>
 </head>
 <body>
-    Testing
+    <header>
+        <div class="page_title">
+            <h1>JackBai's Blog</h1>
+        </div>
+        <nav class="nav_bar">
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="not yet built.html">Reading Reviews</a></li>
+                <li><a href="not yet built.html">Studying Records</a></li>
+                <li class="nav_bar_end"><a href="not yet built.html">Others</a></li>
+            </ul>            
+        </nav>
+    </header>
+    
 </body>
 </html>
