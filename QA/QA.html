@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくある質問‐ヒマラヤ(Himalaya)－耳のスキマ時間を豊かにする音声メディア</title>
+    <script src="contents.js" type="text/javascript"></script>
+    <script>
+        window.onload = function(){
+            var lv1_left_menus = document.getElementsByClassName("lv1_left_menu");
+            var lv2_left_menu_sets = document.getElementsByClassName("lv2_left_menu_set");
+            var lv2_left_menus_all = document.getElementsByClassName("lv2_left_menu");
+            var main_content = document.getElementById("main_content");
+
+            for(var i=0; i < lv1_left_menus.length; i++){
+                lv1_left_menus[i].index = i;
+                lv1_left_menus[i].firstElementChild.setAttribute("class","deactive");
+                lv1_left_menus[i].onclick = function(){
+                    if(this.firstElementChild.getAttribute("class")=="deactive"){
+                        for(var j=0; j<lv1_left_menus.length; j++){
+                            lv1_left_menus[j].firstElementChild.setAttribute("class","deactive");
+                        }
+                        for(j=0; j<lv2_left_menus_all.length; j++){
+                            lv2_left_menus_all[j].style.display="none";
+                        }
+                        this.firstElementChild.setAttribute("class","active");
+                        var lv2_left_menus = lv2_left_menu_sets[this.index].children;
+                        for(j=0; j<lv2_left_menus.length; j++){
+                            lv2_left_menus[j].style.display="block";
+                        }
+                    }else{
+                        this.firstElementChild.setAttribute("class","deactive");
+                        var lv2_left_menus = lv2_left_menu_sets[this.index].children;
+                        for(var j=0; j<lv2_left_menus.length; j++){
+                            lv2_left_menus[j].style.display="none";
+                        }
+                    }
+                }
+            }
+
+            for(var i=0; i< lv2_left_menus_all.length;i++){
+                lv2_left_menus_all[i].index = i;
+                lv2_left_menus_all[i].onclick = function(){
+                    for(var j=0; j<lv2_left_menus_all.length;j++){
+                        lv2_left_menus_all[j].setAttribute("class","lv2_left_menu");
+                    }
+                    lv2_left_menus_all[this.index].setAttribute("class","lv2_left_menu lv2_left_menu_active");
+                    changeMainContent(this.index,main_content);
+                }
+            }
+        }
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #header_container{
+            margin: 0 50px;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        .icon{
+            width: 109px;
+            height: 24px;
+            display: block;
+            float: left;
+        }
+        #header_container img{
+            width: auto;
+            height: 100%;
+
+        }
+        #header_container div{
+            display: block;
+            float: right;
+            margin:0 20px;
+        }
+        #header_functions li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .banner{
+            display: block;
+            background-color: black;
+        }
+        .title_pic{
+            width: 100%;
+            height: auto;
+        }
+        .display_area{
+            margin:0 150px;
+        }
+        .left_menu{
+            display: block;
+            float: left;
+            text-align: center;
+            width: 300px;
+            height: auto;
+        }
+        .lv1_left_menu span{
+            position: relative;
+            left:-15px;
+        }
+        .lv1_left_menu span.deactive::after{
+            content: "";
+            display: inline-block;
+            background-color: transparent;
+            border-top:8px solid white;
+            border-right:8px solid transparent;
+            border-left:8px solid transparent;
+            border-bottom:8px solid transparent;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right:-35px;
+            top:8px;
+        }
+        .lv1_left_menu span.active::after{
+            content: "";
+            display: inline-block;
+            background-color: transparent;
+            border-top:8px solid transparent;
+            border-right:8px solid transparent;
+            border-left:8px solid transparent;
+            border-bottom:8px solid white;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right:-35px;
+            top:0px;
+        }
+        .lv1_left_menu{
+            background-color: gray;
+            padding:20px 45px;
+            color: white;
+            border-bottom: 1px solid white;
+            user-select: none;
+            cursor: pointer;
+        }
+        .lv1_left_menu:hover{
+            background-color: lightgray;
+        }
+        .lv2_left_menu{
+            background-color:rgb(233, 233, 233);
+            padding:20px 45px;
+            color: rgb(100, 100, 100);
+            border-bottom: 1px solid white;
+            user-select: none;
+            cursor: pointer;
+            display: none;
+        }
+        .lv2_left_menu:hover{
+            background-color: lightgray;
+        }
+        .lv2_left_menu_active{
+            background-color:lightgray;
+            padding:20px 45px;
+            color: rgb(100, 100, 100);
+            border-bottom: 1px solid white;
+            border-left:3px solid lightsalmon;
+            user-select: none;
+            cursor: pointer;
+            display: none;
+        }
+        .link_no_effect{
+            text-decoration: none;
+            color: white;
+        }
+        .email{
+            background-color: gray;
+            padding:20px 45px;
+            color: white;
+            border-bottom: 1px solid white;
+            user-select: none;
+            cursor: pointer;
+        }
+        .email:hover{
+            background-color: lightgray;
+        }
+        .main_content{
+            display: block;
+            float:left;
+            width:800px;
+            height: auto;
+            align-items: center;
+        }
+        .main_content_title{
+            margin: 50px;
+        }
+        footer div{
+            height: 390px;
+            width: auto;
+        }
+        footer img{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div id="header_container">
+            <a href="https://www.himalaya.com/jp" class="icon"><img src="himalaya.png" alt="icon" class="hima_logo"></a>
+            <div id="header_functions">
+                <ul>
+                    <li>ポッドキャスターサポートページ</li>
+                    <li>ダウンロード</li>
+                    <li>登録</li>
+                    <li>ログイン</li>
+                </ul>
+            </div>
+            <div id="header_search">検索欄</div>
+        </div>
+    </header>
+    <!-- banner -->
+    <div class="banner"><img src="title_pic.png" alt="title_pic" class="title_pic"></div>
+    <!-- display_area -->
+    <div class="display_area">
+        <!-- left menu: 
+            div+span => a button
+            lv2_left_menu_set contains a set of lv2 menus
+            set is used to refer which lv1 menu it belongs to    
+        -->
+        <div id="left_menu" class="left_menu">
+            <div>
+                <div class="lv1_left_menu">
+                    <span>キャスターサポート</span>
+                </div>
+                <div class="lv2_left_menu_set">
+                    <div class="lv2_left_menu"><span>登録PC</span></div>
+                    <div class="lv2_left_menu"><span>登録Android</span></div>
+                    <div class="lv2_left_menu"><span>登録iPhone</span></div>
+                    <div class="lv2_left_menu"><span>アップロード</span></div>
+                </div>
+            </div>
+            <div>
+                <div class="lv1_left_menu">
+                    <span>リスナーサポート</span>
+                </div>
+                <div class="lv2_left_menu_set">
+                    <div class="lv2_left_menu"><span>himalaya聴き放題</span></div>
+                    <div class="lv2_left_menu"><span>プレミアムコンテンツ</span></div>
+                </div>
+            </div>
+            <div class="email"><a href="mailto:support@himalaya.com" class="link_no_effect">お問い合わせ</a></div>
+        </div>
+        <div class="main_content" id="main_content">
+            <div>
+                <div class="main_content_title"><h1>登録方法PC</h1></div>
+                <div class="content_pic"><img src="QA_pics/himalaya操作方法マニュアル_02.png" alt="sign_up2"></div>
+                <div class="content_pic"><img src="QA_pics/himalaya操作方法マニュアル_03.png" alt="sign_up3"></div>
+                <div class="content_pic"><img src="QA_pics/himalaya操作方法マニュアル_04.png" alt="sign_up4"></div>
+                <div class="content_pic"><img src="QA_pics/himalaya操作方法マニュアル_05.png" alt="sign_up5"></div>
+            </div>
+        </div>
+    </div> 
+    <footer>
+        <div><img src="footer.png" alt="footer" class="title_pic"></div>
+    </footer>   
+</body>
+</html>
