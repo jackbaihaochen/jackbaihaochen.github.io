@@ -40,7 +40,8 @@
                 //2.如果没有last_login_date则创建，时间为now，continuous_login为1；且抽奖；
                 var now = new Date();
                 localStorage.setItem("last_login_date",now);
-                localStorage.setItem("continuous_login",continuous_login+1);
+                continuous_login = continuous_login+1;
+                localStorage.setItem("continuous_login",continuous_login);
                 alert("今日は抽選できます！");
             }else{
                 //3.如果有last_login_date则读取并与now比较；
@@ -51,8 +52,9 @@
                 if(next_date.getFullYear()==now.getFullYear()&&next_date.getMonth()==now.getMonth()&&next_date.getDate()==now.getDate()){
                     //3.1.如果已经是第二天，则更新last_login_date为now，并且continuous_login+1；
                     localStorage.setItem("last_login_date",now);
-                    localStorage.setItem("continuous_login",continuous_login+1);
-                    alert(`連続${continuous_login+1}日ログイン成功！`);
+                    continuous_login = continuous_login+1;
+                    localStorage.setItem("continuous_login",continuous_login);
+                    alert(`連続${continuous_login}日ログイン成功！`);
                     //3.2.如果已经7天则抽奖；
                     if(continuous_login==1 || continuous_login==7){
                         alert("今日は抽選できます！");
