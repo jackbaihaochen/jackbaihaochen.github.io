@@ -61,6 +61,8 @@
                     //3.3.如果尚未到达第二天，则不更新任何信息，且无提示（看上去就是点击无效）
                 }
             }
+            //4.更改alert显示文字
+            oAlert.innerHTML = `現在は連続${continuous_login}日ログイン！`;
         }
     }
 </script>
