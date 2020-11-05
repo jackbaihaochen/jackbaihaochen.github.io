@@ -1448,7 +1448,7 @@ a {
 		transform: scale(1,1) translate(0px,0px);
 	}
 	to{
-		transform: scale(2,2) translate(0px,-300px);
+		transform: scale(3,3) translate(0px,-300px);
 	}
 
 }
@@ -1458,7 +1458,7 @@ a {
 		transform: scale(1,1) translate(0px,0px);
 	}
 	to{
-		transform: scale(2,2) translate(0px,-300px);
+		transform: scale(3,3) translate(0px,-300px);
 	}
 
 }
