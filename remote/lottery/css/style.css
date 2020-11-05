@@ -1445,20 +1445,20 @@ a {
 
 @-webkit-keyframes result_animation_niu_danji {
 	from{
-		transform: scale(1,1) translate(0px,0px);
+		transform: scale(1,1);
 	}
 	to{
-		transform: scale(3,3) translate(0px,-300px);
+		transform: scale(3,3);
 	}
 
 }
 
 @keyframes result_animation_niu_danji {
 	from{
-		transform: scale(1,1) translate(0px,0px);
+		transform: scale(1,1);
 	}
 	to{
-		transform: scale(3,3) translate(0px,-300px);
+		transform: scale(3,3);
 	}
 
 }

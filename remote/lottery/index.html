@@ -313,8 +313,11 @@
 			function result_animation(){
 				var $niu_danji = $(".niu_danji");
 				$niu_danji.css({"animation-name":"result_animation_niu_danji","animation-duration":"3s","animation-delay":"2s","animation-fill-mode":"forwards","animation-timing-function":"linear"});
+				setTimeout(function(){
+					$niu_danji.animate({top:-document.body.clientHeight/2},3000,"linear");
+				},2000);
 				var $result_covering = $(".result_covering");
-				$result_covering.css({"animation-name":"result_animation_result_covering","animation-duration":"2s","animation-delay":"5s","animation-fill-mode":"backwards","display":"block"});
+				$result_covering.css({"animation-name":"result_animation_result_covering","animation-duration":"2s","animation-delay":"5s","animation-fill-mode":"both","display":"block"});
 			}
 
 			//设定score为100，从而只能抽一次奖；
@@ -368,7 +371,7 @@
 							if (data.code == 2) {
 								result_animation();
 								setTimeout(function(){
-									window.open(`${result_page}?number=${number}&coupon_link=null&coupon_code=null`,"_self");
+									// window.open(`${result_page}?number=${number}&coupon_link=null&coupon_code=null`,"_self");
 								},6000)
 							} else {
 								alert("Error: "+data.message);
@@ -380,7 +383,7 @@
 							console.log(coupon_code);
 							result_animation();
 							setTimeout(function(){
-								window.open(`${result_page}?number=${number}&coupon_link=${coupon_link}&coupon_code=${coupon_code}`,"_self");
+								// window.open(`${result_page}?number=${number}&coupon_link=${coupon_link}&coupon_code=${coupon_code}`,"_self");
 							},6000)
 						}
 					}
