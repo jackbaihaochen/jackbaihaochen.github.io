@@ -1446,9 +1446,11 @@ a {
 @-webkit-keyframes result_animation_niu_danji {
 	from{
 		transform: scale(1,1);
+		transform:translateY(0px);
 	}
 	to{
 		transform: scale(2,2);
+		transform:translateY(10px);
 	}
 
 }
@@ -1456,9 +1458,11 @@ a {
 @keyframes result_animation_niu_danji {
 	from{
 		transform: scale(1,1);
+		transform:translateY(0px);
 	}
 	to{
 		transform: scale(2,2);
+		transform:translateY(10px);
 	}
 
 }
