@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    12 months users<input type="text" id="12" /><br />
+    6 months users<input type="text" id="6" /><br />
+    3 months users<input type="text" id="3" /><br />
+    <button id="btn">submit</button><br />
+    The winners for 12 months are:
+    <div id="12_text"></div>
+    <br />
+    The winners for 6 monthsare:
+    <div id="6_text"></div>
+    <br />
+    The winners for 3 monthsare:
+    <div id="3_text"></div>
+    <br />
+    <script>
+      window.onload = function () {};
+      var obj_month12 = document.getElementById("12");
+      var obj_month6 = document.getElementById("6");
+      var obj_month3 = document.getElementById("3");
+      var btn = document.getElementById("btn");
+      var text_month12 = document.getElementById("12_text");
+      var text_month6 = document.getElementById("6_text");
+      var text_month3 = document.getElementById("3_text");
+
+      btn.onclick = function () {
+        var month12 = obj_month12.value;
+        var month6 = obj_month6.value;
+        var month3 = obj_month3.value;
+        random(month12, month6, month3);
+      };
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+      function random(month12, month6, month3) {
+        var src = ``;
+        for (var i = 0; i < month12; i++) {
+          src = src + `user num:${getRandomInt(234)}<br>`;
+        }
+        text_month12.innerHTML = src;
+        src = ``;
+        for (var i = 0; i < month6; i++) {
+          src = src + `user num:${getRandomInt(234)}<br>`;
+        }
+        text_month6.innerHTML = src;
+        src = ``;
+        for (var i = 0; i < month3; i++) {
+          src = src + `user num:${getRandomInt(234)}<br>`;
+        }
+        text_month3.innerHTML = src;
+        src = ``;
+      }
+    </script>
+  </body>
+</html>

@@ -1,388 +1,397 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="apple-touch-fullscreen" content="YES" />
-	<meta name="format-detection" content="telephone=no" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta http-equiv="Expires" content="-1" />
-	<meta http-equiv="pragram" content="no-cache" />
+    <link href="./css/style.css" type="text/css" rel="stylesheet" />
 
-	<link href="./css/style.css" type="text/css" rel="stylesheet" />
+    <title>扭蛋机</title>
+    <!--移动端版本兼容 -->
+    <script type="text/javascript">
+      var phoneWidth = parseInt(window.screen.width);
+      var phoneScale = phoneWidth / 640;
+      var ua = navigator.userAgent;
+      if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        // andriod 2.3
+        if (version > 2.3) {
+          document.write(
+            '<meta name="viewport" content="width=640, minimum-scale = ' +
+              phoneScale +
+              ", maximum-scale = " +
+              phoneScale +
+              ', target-densitydpi=device-dpi">'
+          );
+          // andriod 2.3以上
+        } else {
+          document.write(
+            '<meta name="viewport" content="width=640, target-densitydpi=device-dpi">'
+          );
+        }
+        // 其他系统
+      } else {
+        document.write(
+          '<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">'
+        );
+      }
+    </script>
 
-	<title>扭蛋机</title>
-	<!--移动端版本兼容 -->
-	<script type="text/javascript">
-		var phoneWidth = parseInt(window.screen.width);
-		var phoneScale = phoneWidth / 640;
-		var ua = navigator.userAgent;
-		if (/Android (\d+\.\d+)/.test(ua)) {
-			var version = parseFloat(RegExp.$1);
-			// andriod 2.3
-			if (version > 2.3) {
-				document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale +
-					', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
-				// andriod 2.3以上
-			} else {
-				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
-			}
-			// 其他系统
-		} else {
-			document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
-		}
-	</script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+  </head>
 
-	<script src="./js/jquery-3.5.1.min.js"></script>
+  <body>
+    <style>
+      .game_go:hover {
+        transform: scale(1.2);
+      }
 
-</head>
+      .header-title {
+        text-align: center;
+        font-size: 35px;
+        margin: 50px auto 10px auto;
+      }
 
-<body>
-	<style>
-		.game_go:hover {
-			transform: scale(1.2);
-		}
+      .intro-container {
+        padding: 15px;
+      }
 
-		.header-title {
-			text-align: center;
-			font-size: 35px;
-			margin: 50px auto 10px auto;
-		}
+      .intro-title {
+        font-size: 30px;
+        text-align: center;
+      }
 
-		.intro-container {
-			padding: 15px;
-		}
+      .intro-content {
+        font-size: 20px;
+        margin: 15px auto;
+      }
 
-		.intro-title {
-			font-size: 30px;
-			text-align: center;
-		}
+      div#success-result-show {
+        color: black;
+      }
 
-		.intro-content {
-			font-size: 20px;
-			margin: 15px auto;
-		}
+      p.result-show-title {
+        text-align: center;
+        font-size: 30px;
+        padding: 15px;
+        color: #000;
+      }
 
-		div#success-result-show {
-			color: black;
-		}
+      h3.result-show-time {
+        text-align: center;
+        font-size: 24px;
+        color: red;
+      }
 
-		p.result-show-title {
-			text-align: center;
-			font-size: 30px;
-			padding: 15px;
-			color: #000;
-		}
+      .result-show-time-link {
+        width: 90%;
+        text-align: center;
+        margin: 10px 15px;
+        background: moccasin;
+        padding: 5px;
+      }
 
-		h3.result-show-time {
-			text-align: center;
-			font-size: 24px;
-			color: red;
-		}
+      .jpzs {
+        text-align: center;
+      }
 
-		.result-show-time-link {
-			width: 90%;
-			text-align: center;
-			margin: 10px 15px;
-			background: moccasin;
-			padding: 5px;
-		}
+      .result-show-button {
+        color: black;
+        text-align: center;
+        display: inline-block;
+        font-size: 25px;
+        margin: 15px;
+        background: red;
+        color: white;
+        padding: 5px 50px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .result-show-button:hover {
+        transform: scale(1.2);
+      }
 
-		.jpzs {
-			text-align: center;
-		}
+      .result-show-none {
+        font-size: 25px;
+        color: #000;
+        padding: 105px 10px;
+      }
+    </style>
+    <div class="header-title">ヒマラヤ宝くじ</div>
 
-		.result-show-button {
-			color: black;
-			text-align: center;
-			display: inline-block;
-			font-size: 25px;
-			margin: 15px;
-			background: red;
-			color: white;
-			padding: 5px 50px;
-			border-radius: 20px;
-			cursor: pointer;
-		}
-		.result-show-button:hover {
-			transform: scale(1.2);
-		}
+    <div class="niu_danji">
+      <!--机器-->
+      <div class="game_qu">
+        <!--go-->
+        <div class="game_go">ガチャ</div>
+        <!-- <div class="wdjifen">10000</div> -->
+      </div>
 
-		.result-show-none {
-			font-size: 25px;
-			color: #000;
-			padding: 105px 10px;
-		}
-	</style>
-	<div class="header-title">
-		ヒマラヤ宝くじ
-	</div>
+      <!--球-->
+      <div class="dan_gund">
+        <span class="qiu_1 diaol_1"></span>
+        <span class="qiu_2 diaol_2"> </span>
+        <span class="qiu_3 diaol_3"></span>
 
-	<div class="niu_danji">
-		<!--机器-->
-		<div class="game_qu">
-			<!--go-->
-			<div class="game_go">ガチャ</div>
-			<!-- <div class="wdjifen">10000</div> -->
-		</div>
+        <span class="qiu_4 diaol_4"></span>
+        <span class="qiu_5 diaol_5"></span>
+        <span class="qiu_6 diaol_6"></span>>
 
-		<!--球-->
-		<div class="dan_gund">
-			<span class="qiu_1 diaol_1"></span>
-			<span class="qiu_2 diaol_2"> </span>
-			<span class="qiu_3 diaol_3"></span>
+        <span class="qiu_7 diaol_7"></span>
+        <span class="qiu_8 diaol_8"></span>
 
-			<span class="qiu_4 diaol_4"></span>
-			<span class="qiu_5 diaol_5"></span>
-			<span class="qiu_6 diaol_6"></span>>
+        <span class="qiu_9 diaol_9"></span>
+        <span class="qiu_10 diaol_10"></span>
+        <span class="qiu_11 diaol_11"></span>
+      </div>
 
-			<span class="qiu_7 diaol_7"></span>
-			<span class="qiu_8 diaol_8"></span>
+      <!--中奖掉落-->
+      <div class="medon"><img src="images/mendong.png" id="mendong" /></div>
+      <div class="zjdl">
+        <span></span>
+      </div>
+    </div>
 
+    中奖 获得奖品，奖品统一用同一段代码
+    <div class="zonj_zezc none" id="success-result-show">
+      <!-- <em><img src="images/close.png"/></em> -->
+      <div class="jpzs result-show">
+        <p class="result-show-title">🥰 当たり！</p>
+        <h3 class="result-show-time" id="result-show-time">一年聞き放題</h3>
+        <textarea class="result-show-time-link" id="result-show-time-link">
+linklinklinklinklinklinklinklink</textarea
+        >
+        <span
+          class="result-show-button"
+          data-clipboard-target="#result-show-time-link"
+          id="btn"
+          rel="noopener noreferrer"
+          >コピーする</span
+        >
+      </div>
+    </div>
 
-			<span class="qiu_9 diaol_9"></span>
-			<span class="qiu_10 diaol_10"></span>
-			<span class="qiu_11 diaol_11"></span>
+    <!--没有中奖-->
+    <div class="zonj_zezc none" id="jianpin_kong">
+      <div class="jpzs aiqiyi tc_anima">
+        <h2 class="result-show-none">残念ですが、ハズレ！</h2>
+      </div>
+    </div>
 
-		</div>
+    <!-- 积分不足 -->
+    <div class="zonj_zezc none" id="no_jifeng">
+      <div class="jpzs aiqiyi tc_anima">
+        <em><img src="images/close.png" /></em>
+        <h2>对不起，积分不足！</h2>
+      </div>
+    </div>
 
-		<!--中奖掉落-->
-		<div class="medon"><img src="images/mendong.png" id="mendong" /></div>
-		<div class="zjdl ">
-			<span></span>
-		</div>
+    <section class="intro-container">
+      <h2 class="intro-title">抽選のルール</h2>
+      <p class="intro-content">下記の説明通り.</p>
+      <ul class="intro-list">
+        <li>asdfdsafsdafs</li>
+        <li>asdfdsafsdafs</li>
+        <li>asdfdsafsdafs</li>
+        <li>asdfdsafsdafs</li>
+      </ul>
+    </section>
 
-	</div>
+    <section class="intro-container">
+      <h2 class="intro-title">賞品リスト</h2>
 
+      <ul class="intro-list">
+        <li>ー　sdfdsafsdafs</li>
+        <li>ー　asdfdsafsdafs</li>
+        <li>ー　asdfdsafsdafs</li>
+        <li>ー　asdfdsafsdafs</li>
+      </ul>
+    </section>
 
-	<!--中奖 获得奖品，奖品统一用同一段代码-->
-	<div class="zonj_zezc none" id="success-result-show">
-		<!-- <em><img src="images/close.png"/></em> -->
-		<div class="jpzs result-show">
-			<p class="result-show-title">🥰 当たり！</p>
-			<h3 class="result-show-time" id="result-show-time">一年聞き放題</h3>
-			<textarea class="result-show-time-link"
-				id="result-show-time-link">linklinklinklinklinklinklinklink</textarea>
-			<span class="result-show-button" data-clipboard-target="#result-show-time-link" id="btn"
-				rel="noopener noreferrer">コピーする</span>
-		</div>
-	</div>
+    <div class="result_covering"></div>
 
+    <script>
+      $(document).ready(function (e) {
+        //积分不足 关闭
+        $("#no_jifeng em img").click(function () {
+          $("#no_jifeng").hide();
+        });
 
-	<!--没有中奖-->
-	<div class="zonj_zezc none" id="jianpin_kong">
-		<div class="jpzs aiqiyi tc_anima">
-			<h2 class="result-show-none">
-				残念ですが、ハズレ！
-			</h2>
-		</div>
-	</div>
+        //复制文本函数,传入参数为想要复制到粘贴板的文本
+        function copy_text(text) {
+          const input = document.createElement("input");
+          input.setAttribute("style", "display='none'");
+          input.setAttribute("readonly", "readonly");
+          document.body.appendChild(input);
+          input.setAttribute("value", `${text}`);
+          input.focus();
+          input.setSelectionRange(0, 9999);
+          if (document.execCommand("copy")) {
+            document.execCommand("copy");
+            console.log("复制成功");
+            console.log(input.value);
+          }
+          document.body.removeChild(input);
+        }
 
+        //限制每日访问次数函数,如何没到限制可以访问返回true，如无法访问返回false；
+        function daily_login_restriction() {
+          //检测之前是否有下次可以访问时间的记录，如果无或已到期，则更新下次可访问时间并正常显示；
+          // if((!localStorage.getItem("next_time"))||(Date.now()>parseInt(localStorage.getItem("next_time")))){
+          // 	var next_time = Date.now() + (1000*60*60*24);
+          // 	localStorage.setItem("next_time",next_time.toString());
+          return true;
+          // }else{
+          // 	//如果有下次访问时间并且尚未到期，则无法访问；
+          // 	alert("もう抽選しました！");
+          // 	return false;
+          // }
+        }
 
-	<!-- 积分不足 -->
-	<div class="zonj_zezc none" id="no_jifeng">
-		<div class="jpzs aiqiyi tc_anima">
-			<em><img src="images/close.png" /></em>
-			<h2>
-				对不起，积分不足！
-			</h2>
-		</div>
-	</div>
+        //展示结果的zoom-in动画
+        function result_animation() {
+          var $niu_danji = $(".niu_danji");
+          $niu_danji.css({
+            "animation-name": "result_animation_niu_danji",
+            "animation-duration": "3s",
+            "animation-delay": "1s",
+            "animation-fill-mode": "forwards",
+            "animation-timing-function": "linear",
+          });
+          setTimeout(function () {
+            $niu_danji.animate(
+              { top: -document.body.clientHeight / 2 },
+              3000,
+              "linear"
+            );
+          }, 1000);
+          var $result_covering = $(".result_covering");
+          $result_covering.css({
+            "animation-name": "result_animation_result_covering",
+            "animation-duration": "2s",
+            "animation-delay": "4s",
+            "animation-fill-mode": "both",
+            display: "block",
+          });
+        }
 
+        //设定score为100，从而只能抽一次奖；
+        var score = 100;
 
+        $(".game_go").click(function () {
+          if (daily_login_restriction()) {
+            score -= 100;
+            if (score < 0) {
+              for (i = 1; i <= 11; i++) {
+                $(".qiu_" + i).removeClass("wieyi_" + i);
+              }
+              $("#no_jifeng").show();
+            } else {
+              draw();
+              $(".game_go").prop("onclick", null).off("click");
+            }
+          }
+        });
 
-	<section class="intro-container">
-		<h2 class="intro-title">
-			抽選のルール
-		</h2>
-		<p class="intro-content">
-			下記の説明通り.
-		</p>
-		<ul class="intro-list">
-			<li>asdfdsafsdafs</li>
-			<li>asdfdsafsdafs</li>
-			<li>asdfdsafsdafs</li>
-			<li>asdfdsafsdafs</li>
-		</ul>
-	</section>
+        function draw() {
+          //创建1~100随机数，以达成概率效果;
+          var random_num = Math.floor(100 * Math.random() + 1);
+          //1是一年，2是半年，3是没中;
+          var number = 0;
+          if (random_num >= 1 && random_num <= 30) {
+            number = 1;
+          } else if (random_num >= 31 && random_num <= 80) {
+            number = 2;
+          } else {
+            number = 3;
+          }
 
-	<section class="intro-container">
-		<h2 class="intro-title">
-			賞品リスト
-		</h2>
-	
-		<ul class="intro-list">
-			<li>ー　sdfdsafsdafs</li>
-			<li>ー　asdfdsafsdafs</li>
-			<li>ー　asdfdsafsdafs</li>
-			<li>ー　asdfdsafsdafs</li>
-		</ul>
-	</section>
+          var coupon_link = null;
+          var coupon_code = null;
+          var browser = navigator.userAgent;
+          var result_page = "test-result-page.html";
+          //发送抽奖结果，并返回coupon
+          $.ajax({
+            type: "GET",
+            url: "get_method_data_exchange.php",
+            dataType: "json",
+            data: {
+              number: number,
+              browser: browser,
+            },
+            success: function (data) {
+              if (data.code) {
+                if (data.code == 2) {
+                  result_animation();
+                  setTimeout(function () {
+                    //拼成get请求访问结果页
+                    window.open(
+                      `${result_page}?number=${number}&coupon_link=null&coupon_code=null`,
+                      "_self"
+                    );
+                  }, 6000);
+                } else {
+                  alert("Error: " + data.message);
+                }
+              } else {
+                coupon_link = data.coupon_link;
+                coupon_code = data.coupon_code;
+                console.log(coupon_link);
+                console.log(coupon_code);
+                result_animation();
+                setTimeout(function () {
+                  //拼成get请求访问结果页
+                  window.open(
+                    `${result_page}?number=${number}&coupon_link=${coupon_link}&coupon_code=${coupon_code}`,
+                    "_self"
+                  );
+                }, 6000);
+              }
+            },
+          });
 
-	<div class="result_covering">
+          for (i = 1; i <= 11; i++) {
+            $(".qiu_" + i).removeClass("diaol_" + i);
+            $(".qiu_" + i).addClass("wieyi_" + i);
+          }
 
-	</div>
+          setTimeout(function () {
+            for (i = 1; i <= 11; i++) {
+              $(".qiu_" + i).removeClass("wieyi_" + i);
+            }
+          }, 5100);
+          setTimeout(function () {
+            switch (number) {
+              case 1:
+                $(".zjdl").children("span").addClass("diaL_one");
+                break;
+              case 2:
+                $(".zjdl").children("span").addClass("diaL_two");
+                break;
+              // case 3:$(".zjdl").children("span").addClass("diaL_three");break;
+              // case 4:$(".zjdl").children("span").addClass("diaL_four");break;
+              case 3:
+                $(".zjdl").children("span").addClass("diaL_four");
+                break;
+            }
+            $(".zjdl").removeClass("none").addClass("dila_Y");
+          }, 1100);
 
-	<script>
-		$(document).ready(function (e) {	
-
-			//积分不足 关闭
-			$("#no_jifeng em img").click(function () {
-				$("#no_jifeng").hide();
-			});
-
-			//复制文本函数,传入参数为想要复制到粘贴板的文本
-			function copy_text(text) {
-				const input = document.createElement('input');
-				input.setAttribute("style", "display='none'");
-				input.setAttribute('readonly', 'readonly');
-				document.body.appendChild(input);
-				input.setAttribute('value', `${text}`);
-				input.focus();
-				input.setSelectionRange(0, 9999);
-				if (document.execCommand('copy')) {
-					document.execCommand('copy');
-					console.log('复制成功');
-					console.log(input.value);
-				}
-				document.body.removeChild(input);
-			}
-
-			//限制每日访问次数函数,如何没到限制可以访问返回true，如无法访问返回false；
-			function daily_login_restriction() {
-				//检测之前是否有下次可以访问时间的记录，如果无或已到期，则更新下次可访问时间并正常显示；
-				// if((!localStorage.getItem("next_time"))||(Date.now()>parseInt(localStorage.getItem("next_time")))){
-				// 	var next_time = Date.now() + (1000*60*60*24);
-				// 	localStorage.setItem("next_time",next_time.toString());
-				return true;
-				// }else{
-				// 	//如果有下次访问时间并且尚未到期，则无法访问；
-				// 	alert("もう抽選しました！");
-				// 	return false;
-				// }
-			}
-
-			//展示结果的zoom-in动画
-			function result_animation(){
-				var $niu_danji = $(".niu_danji");
-				$niu_danji.css({"animation-name":"result_animation_niu_danji","animation-duration":"3s","animation-delay":"1s","animation-fill-mode":"forwards","animation-timing-function":"linear"});
-				setTimeout(function(){
-					$niu_danji.animate({top:-document.body.clientHeight/2},3000,"linear");
-				},1000);
-				var $result_covering = $(".result_covering");
-				$result_covering.css({"animation-name":"result_animation_result_covering","animation-duration":"2s","animation-delay":"4s","animation-fill-mode":"both","display":"block"});
-			}
-
-			//设定score为100，从而只能抽一次奖；
-			var score = 100;
-
-
-			$(".game_go").click(function () {
-				if (daily_login_restriction()) {
-					score -= 100;
-					if (score < 0) {
-						for (i = 1; i <= 11; i++) {
-							$(".qiu_" + i).removeClass("wieyi_" + i);
-						}
-						$("#no_jifeng").show();
-					} else {
-						draw();
-						$(".game_go").prop("onclick", null).off("click");
-					}
-				}
-			});
-
-
-			function draw() {
-				//创建1~100随机数，以达成概率效果;
-				var random_num = Math.floor(100 * Math.random() + 1);
-				//1是一年，2是半年，3是没中;
-				var number = 0;
-				if (random_num >= 1 && random_num <= 30) {
-					number = 1;
-				} else if (random_num >= 31 && random_num <= 80) {
-					number = 2;
-				} else {
-					number = 3;
-				}
-
-				var coupon_link = null;
-				var coupon_code = null;
-				var browser = navigator.userAgent;
-				var result_page = "test-result-page.html";
-				//发送抽奖结果，并返回coupon
-				$.ajax({
-					type: 'GET',
-					url: 'https://pub.kikihodai.com/himalaya/lottery/get_method_data_exchange.php',
-					dataType: 'json',
-					data: {
-						'number': number,
-						'browser': browser
-					},
-					success: function (data) {
-						if (data.code) {
-							if (data.code == 2) {
-								result_animation();
-								setTimeout(function(){
-									//拼成get请求访问结果页
-									window.open(`${result_page}?number=${number}&coupon_link=null&coupon_code=null`,"_self");
-								},6000)
-							} else {
-								alert("Error: "+data.message);
-							}
-						} else {
-							coupon_link = data.coupon_link;
-							coupon_code = data.coupon_code;
-							console.log(coupon_link);
-							console.log(coupon_code);
-							result_animation();
-							setTimeout(function(){
-								//拼成get请求访问结果页
-								window.open(`${result_page}?number=${number}&coupon_link=${coupon_link}&coupon_code=${coupon_code}`,"_self");
-							},6000)
-						}
-					}
-				});
-
-				for (i = 1; i <= 11; i++) {
-					$(".qiu_" + i).removeClass("diaol_" + i);
-					$(".qiu_" + i).addClass("wieyi_" + i);
-				};
-
-				setTimeout(function () {
-					for (i = 1; i <= 11; i++) {
-						$(".qiu_" + i).removeClass("wieyi_" + i);
-					}
-				}, 5100);
-				setTimeout(function () {
-					switch (number) {
-						case 1:
-							$(".zjdl").children("span").addClass("diaL_one");
-							break;
-						case 2:
-							$(".zjdl").children("span").addClass("diaL_two");
-							break;
-							// case 3:$(".zjdl").children("span").addClass("diaL_three");break;
-							// case 4:$(".zjdl").children("span").addClass("diaL_four");break;
-						case 3:
-							$(".zjdl").children("span").addClass("diaL_four");
-							break;
-					}
-					$(".zjdl").removeClass("none").addClass("dila_Y");
-				}, 1100)
-
-				//取消动画
-				setTimeout(function () {
-					$(".wdjifen").html(score);
-				}, 2500)
-
-			}
-		});
-	</script>
-
-
-</body>
-
+          //取消动画
+          setTimeout(function () {
+            $(".wdjifen").html(score);
+          }, 2500);
+        }
+      });
+    </script>
+  </body>
 </html>

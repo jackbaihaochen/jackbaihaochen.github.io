@@ -1,6 +1,5 @@
 <?php
 header("content-type:text/html;charset='utf-8'");
-header("Access-Control-Allow-Origin: *");
 
 $responseData = array("code" => 0, "message" => "");
 
@@ -34,7 +33,7 @@ function get_real_ip()
 $ip_address = get_real_ip();
 
 // 1. make connection to mysql
-$link = mysqli_connect("localhost", "pub_kikihodai_co", "WRhbHXi46ZsKPzDD");
+$link = mysqli_connect("localhost", "pub_kikihodai_co", "wsFb3pTExbAAjKbX");
 
 // 2. check connection
 if (!$link) {

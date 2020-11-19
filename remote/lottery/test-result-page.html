@@ -1,114 +1,220 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test-result-page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>result-page</title>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/fullpage.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/fullpage.css">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-</head>
-<body>
-  <div id="fullpage">
-    <div class="section vh-100" style="background-color: black;">
-      <div class="container">
-        <div>
-          <button type="button" class="btn btn-primary" id="open_btn">クーポンコードを送る</button>
-
-          <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-modal="true" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">himalaya聴き放題のクーポンコード</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">宛先：</label>
-                      <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="col-form-label">内容：</label>
-                      <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  <button type="button" class="btn btn-primary">送信</button>
+    <link rel="stylesheet" type="text/css" href="./css/fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="fullpage">
+      <!-- page1 -->
+      <div class="section vh-100" style="background-color: black" id="pop_up">
+        <div class="container">
+          <div>
+            <button type="button" class="btn btn-primary" id="open_btn">
+              クーポンコードを送る
+            </button>
+            <!-- modal -->
+            <div
+              class="modal fade show"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              style="display: none"
+              aria-modal="true"
+              role="dialog"
+            >
+              <div class="modal-dialog" style="position: absolute; top: 25%">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      himalaya聴き放題のクーポンコード
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label"
+                          >宛先：</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="recipient-name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label"
+                          >内容：</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="message-text"
+                        ></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      閉じる
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="send_email"
+                    >
+                      送信
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <button type="button" class="btn btn-danger" id="use_coupon_link">今すぐ使う</button>
-      </div>  
+          <button type="button" class="btn btn-danger" id="use_coupon_link">
+            今すぐ使う
+          </button>
+        </div>
+      </div>
+
+      <div class="section">Some section</div>
+
+      <div class="section">Some section</div>
     </div>
 
-    <div class="section">Some section</div>
+    <script>
+      //滑屏效果
+      new fullpage("#fullpage", {
+        //options here
+        autoScrolling: true,
+        scrollHorizontally: false,
+      });
 
-    <div class="section">Some section</div>
-  </div>
+      //methods
+      fullpage_api.setAllowScrolling(true);
+    </script>
 
-  <script> 
-    new fullpage('#fullpage', {
-      //options here
-      autoScrolling:true,
-      scrollHorizontally: false
-    });
-
-    //methods
-    fullpage_api.setAllowScrolling(true);
-  </script>
-
-  <style>
-    @keyframes show {
-      from{
-        display: none;
-      }
-      to{
-        display:block;
-      }
-    }
-  </style>
-
-	<script>
-    //解析前面网站发送过来的get请求
-    function analyze_url(url){
+    <script>
+      //解析前面网站发送过来的get请求
+      function analyze_url(url) {
         var data = new Map();
         var arr = url.split("?")[1].split("&");
-        for(var i=0; i<arr.length;i++){
-            var key = arr[i].split("=")[0];
-            var value = arr[i].split("=")[1];
-            data.set(key,value);
+        for (var i = 0; i < arr.length; i++) {
+          var key = arr[i].split("=")[0];
+          var value = arr[i].split("=")[1];
+          data.set(key, value);
         }
         return data;
-    }
+      }
 
-		window.onload = function(){
-      $("#open_btn").click(function(){
-        $("#exampleModal").show(300);
-      });
-      $("button[class='close']").click(function(){
-        $("#exampleModal").css("display","none");
-      });
-      $("button[data-dismiss='modal']").click(function(){
-        $("#exampleModal").css("display","none");
-      });
+      window.onload = function () {
+        //给email弹框增加点击效果
+        $("#open_btn").click(function () {
+          $("#exampleModal").show(200);
+        });
+        $("button[class='close']").click(function () {
+          $("#exampleModal").css("display", "none");
+        });
+        $("button[data-dismiss='modal']").click(function () {
+          $("#exampleModal").css("display", "none");
+        });
 
-			var prev_url = window.location.href;
-      var data = analyze_url(prev_url);
-      $("#message-text").text(`クーポンコードは：${data.get("coupon_code")}`);
-      $("#use_coupon_link").click(function(){
-        alert(data.get("coupon_link"));
-        window.open("https://www.google.com","_self");
-      });
-		}
-	</script>
-</body>
+        //解析get请求所携带的数据，并填充到相应区域
+        var prev_url = window.location.href;
+        var coupon_info = analyze_url(prev_url);
+        $("#message-text").text(
+          `クーポンコードは：${coupon_info.get("coupon_code")}`
+        );
+        $("#message-text").attr("readonly", "readonly");
+
+        //点击现在使用则立刻跳转到coupon_link
+        $("#use_coupon_link").click(function () {
+          alert(coupon_info.get("coupon_link"));
+          window.open("https://www.google.com", "_self");
+        });
+
+        //点击发送邮件，则通过php使用sendgrid发送邮件
+        $("button[id='send_email']").click(function () {
+          //获取To地址和内容
+          var $to_addr = $("#recipient-name").prop("value");
+          //检测email至少要有@符号
+          if ($to_addr.indexOf("@") == -1) {
+            alert("正しいメールアドレスを入力してください。");
+            return false;
+          }
+          var user_name = $to_addr.split("@")[0];
+          var $msg = $("#message-text").prop("value");
+          $.ajax({
+            type: "GET",
+            url: "send_email.php",
+            data: {
+              coupon_code: coupon_info.get("coupon_code"),
+              coupon_link: coupon_info.get("coupon_link"),
+              email_addr: $to_addr,
+              email_name: user_name,
+              email_msg: $msg,
+            },
+            success: function (data_return) {
+              //如果成功，显示成功发送信息；
+              var alert_div = document.createElement("div");
+              alert_div.setAttribute("id", "alert_div");
+              if (data_return.indexOf("202 Accepted") != -1) {
+                div_str = `<div class="alert alert-success" role="alert" style="width:50%; margin: auto; position: relative;text-align: center;">
+              送信成功！
+              </div>`;
+                alert_div.innerHTML = div_str;
+                $("#pop_up").appendChild(alert_div);
+                $("#alert_div").fadeOut("slow");
+              } else {
+                //如果失败，显示失败信息，并提示联系我们
+                div_str = `<div class="vh-100" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0;left: 0;z-index: 5000;">
+          <div class="card" style="z-index: 10000;width: 80%; margin: auto; position: relative;top:25%;">
+            <div class="card-header">
+              送信失敗
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">support@himalaya.comにご連絡ください。</h5><br>
+                  <p class="card-text">クーポンコード：${coupon_info.get(
+                    "coupon_code"
+                  )}</p><br/><p class="card-text">エラーメッセージ：${error_msg}</p>
+                  <a href="#" class="btn btn-primary" id="copy_and_close">閉める</a>
+            </div>
+          </div>
+        </div>`;
+                alert_div.innerHTML = div_str;
+                $("#pop_up").appendChild(alert_div);
+                $("#copy_and_close").click(function () {
+                  copy_text(
+                    `coupon code:${coupon_info.get(
+                      "coupon_code"
+                    )}\ncoupon link:${coupon_info.get(
+                      "coupon_link"
+                    )}\n${data_return}`
+                  );
+                  $("#alert_div").css("display", "none");
+                });
+              }
+              console.log(data_return);
+            },
+          });
+        });
+      };
+    </script>
+  </body>
 </html>
