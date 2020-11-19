@@ -160,7 +160,6 @@
           }
           var user_name = $to_addr.split("@")[0];
           var $msg = $("#message-text").prop("value");
-          //送信
           $.ajax({
             type: "GET",
             url: "https://pub.kikihodai.com/lottery/send_email.php",
@@ -176,47 +175,39 @@
               var alert_div = document.createElement("div");
               alert_div.setAttribute("id", "alert_div");
               if (data_return.indexOf("202 Accepted") != -1) {
-                div_str = `<div
-              class="alert alert-success"
-              role="alert"
-              style="
-                width: 50%;
-                margin: auto;
-                position: absolute;
-                text-align: center;
-                z-index: 10000;
-                top: 0;
-                left: 25%;
-              ">
+                div_str = `<div class="alert alert-success" role="alert" style="width:50%; margin: auto; position: relative;text-align: center;">
               送信成功！
-            </div>`;
+              </div>`;
                 alert_div.innerHTML = div_str;
-                $("#pop_up").append(alert_div);
-                //在出提示信息期间无法点击按钮
-                $("button[id='send_email']").attr("disabled", "true");
-                $("#alert_div").fadeOut(3000, function () {
-                  $("#alert_div").remove();
-                  $("button[id='send_email']").removeAttr("disabled");
-                });
-
-                console.log("success");
+                $("#pop_up").appendChild(alert_div);
+                $("#alert_div").fadeOut("slow");
               } else {
                 //如果失败，显示失败信息，并提示联系我们
-                div_str = `<div class="vh-100" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0;left: 0;z-index: 5000;"><div class="card" style="z-index: 10000;width: 80%; margin: auto; position: relative;top:25%;"><div class="card-header">送信失敗</div>
+                div_str = `<div class="vh-100" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0;left: 0;z-index: 5000;">
+          <div class="card" style="z-index: 10000;width: 80%; margin: auto; position: relative;top:25%;">
+            <div class="card-header">
+              送信失敗
+            </div>
             <div class="card-body">
-              <h5 class="card-title">下記のインフォメーションを記録して、support@himalaya.comにご連絡ください。</h5><br>
+              <h5 class="card-title">support@himalaya.comにご連絡ください。</h5><br>
                   <p class="card-text">クーポンコード：${coupon_info.get(
                     "coupon_code"
                   )}</p><br/><p class="card-text">エラーメッセージ：${error_msg}</p>
                   <a href="#" class="btn btn-primary" id="copy_and_close">閉める</a>
-                </div>
-              </div>
-            </div>`;
+            </div>
+          </div>
+        </div>`;
                 alert_div.innerHTML = div_str;
-                $("#pop_up").append(alert_div);
-                console.log("fail");
+                $("#pop_up").appendChild(alert_div);
                 $("#copy_and_close").click(function () {
-                  $("#alert_div").remove();
+                  copy_text(
+                    `coupon code:${coupon_info.get(
+                      "coupon_code"
+                    )}\ncoupon link:${coupon_info.get(
+                      "coupon_link"
+                    )}\n${data_return}`
+                  );
+                  $("#alert_div").css("display", "none");
                 });
               }
               console.log(data_return);
