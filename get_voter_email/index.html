@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>Total Number Less then 153</h1>
     12 months users<input type="text" id="12" /><br />
     6 months users<input type="text" id="6" /><br />
     3 months users<input type="text" id="3" /><br />
@@ -30,8 +31,10 @@
         var text_month3 = document.getElementById("3_text");
 
         var num_emails = new Map();
+        var randomed_nums = [];
 
         btn.onclick = function () {
+          randomed_nums = [];
           var month12 = obj_month12.value;
           var month6 = obj_month6.value;
           var month3 = obj_month3.value;
@@ -48,19 +51,31 @@
         function random(month12, month6, month3) {
           var src = ``;
           for (var i = 0; i < month12; i++) {
-            let voter_num = getRandomInt(num_emails.size).toString();
+            var voter_num = getRandomInt(num_emails.size).toString();
+            while (randomed_nums.indexOf(voter_num) != -1) {
+              voter_num = getRandomInt(num_emails.size).toString();
+            }
+            randomed_nums.push(voter_num);
             src = src + `user email:${num_emails.get(voter_num)}<br>`;
           }
           text_month12.innerHTML = src;
           src = ``;
           for (var i = 0; i < month6; i++) {
-            let voter_num = getRandomInt(num_emails.size).toString();
+            var voter_num = getRandomInt(num_emails.size).toString();
+            while (randomed_nums.indexOf(voter_num) != -1) {
+              voter_num = getRandomInt(num_emails.size).toString();
+            }
+            randomed_nums.push(voter_num);
             src = src + `user email:${num_emails.get(voter_num)}<br>`;
           }
           text_month6.innerHTML = src;
           src = ``;
           for (var i = 0; i < month3; i++) {
-            let voter_num = getRandomInt(num_emails.size).toString();
+            var voter_num = getRandomInt(num_emails.size).toString();
+            while (randomed_nums.indexOf(voter_num) != -1) {
+              voter_num = getRandomInt(num_emails.size).toString();
+            }
+            randomed_nums.push(voter_num);
             src = src + `user email:${num_emails.get(voter_num)}<br>`;
           }
           text_month3.innerHTML = src;
