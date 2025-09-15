@@ -71,9 +71,24 @@ export default function JsonFormatter() {
     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
       <HelmetProvider>
         <Helmet>
-          <title>{t('json.title')}｜{t('json.subtitle')}</title>
-          <meta name="description" content={t('json.subtitle')} />
+          <title>{t('json.title')}｜在线美化/压缩/校验/复制/下载｜纯前端零上传</title>
+          <meta name="description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
+          <meta name="keywords" content={'JSON 格式化, JSON 美化, JSON 压缩, JSON 校验, JSON 在线, JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON lint'} />
           <link rel="canonical" href="https://jackbaihaochen.github.io/tools/json-formatter/" />
+          {/* Open Graph / Twitter */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={`${t('json.title')}｜${t('json.subtitle')}`} />
+          <meta property="og:description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
+          <meta property="og:url" content="https://jackbaihaochen.github.io/tools/json-formatter/" />
+          <meta property="og:site_name" content={t('brand')} />
+          <meta property="og:locale" content="zh_CN" />
+          <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
+          <meta property="og:image:width" content="512" />
+          <meta property="og:image:height" content="512" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`${t('json.title')}｜${t('json.subtitle')}`} />
+          <meta name="twitter:description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
+          <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <script type="application/ld+json">
             {JSON.stringify({
               '@context': 'https://schema.org',

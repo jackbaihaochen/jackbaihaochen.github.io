@@ -28,9 +28,28 @@ export default function Home() {
     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
       <HelmetProvider>
         <Helmet>
-          <title>{t('home.title')}｜{t('home.tools.json.name')}｜{t('home.tools.jsonyaml.name')}</title>
-          <meta name="description" content={t('home.subtitle')} />
+          <title>{t('home.title')}｜{t('home.tools.json.name')}｜{t('home.tools.jsonyaml.name')}｜纯前端不上传</title>
+          <meta name="description" content={
+            '免费隐私友好的在线开发者工具：JSON 格式化/压缩/校验与 JSON ↔ YAML 双向转换等，所有处理在浏览器本地完成，不收集不上传你的数据。'
+          } />
+          <meta name="keywords" content={
+            '在线工具, 在线 JSON 工具, JSON 格式化,在线 JSON 格式化, JSON 校验, JSON 压缩, JSON 美化, JSON 转 YAML, YAML 转 JSON, JSON to YAML, YAML to JSON, 开发者工具, 纯前端, 零上传, 隐私友好'
+          } />
           <link rel="canonical" href="https://jackbaihaochen.github.io/" />
+          {/* Open Graph / Twitter */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={`${t('home.title')}｜${t('home.tools.json.name')}｜${t('home.tools.jsonyaml.name')}`} />
+          <meta property="og:description" content={'免费隐私友好的在线开发者工具：JSON 格式化/压缩/校验与 JSON ↔ YAML 双向转换等，所有处理在浏览器本地完成，不收集不上传你的数据。'} />
+          <meta property="og:url" content="https://jackbaihaochen.github.io/" />
+          <meta property="og:site_name" content={t('brand')} />
+          <meta property="og:locale" content="zh_CN" />
+          <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
+          <meta property="og:image:width" content="512" />
+          <meta property="og:image:height" content="512" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`${t('home.title')}｜${t('home.tools.json.name')}｜${t('home.tools.jsonyaml.name')}`} />
+          <meta name="twitter:description" content={'免费隐私友好的在线开发者工具：JSON 格式化/压缩/校验与 JSON ↔ YAML 双向转换等，所有处理在浏览器本地完成，不收集不上传你的数据。'} />
+          <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <script type="application/ld+json">
             {JSON.stringify({
               '@context': 'https://schema.org',
