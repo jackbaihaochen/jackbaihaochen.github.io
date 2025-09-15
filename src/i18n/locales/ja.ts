@@ -44,7 +44,10 @@ export default {
     ok: '完了',
     valid: '有効な JSON',
     placeholder: '{"hello":"world"}',
-    note: '本ツールはブラウザ内で JSON.parse と JSON.stringify を用いてローカルに処理します。データは送信されません。'
+    note: '本ツールはブラウザ内で JSON.parse と JSON.stringify を用いてローカルに処理します。データは送信されません。',
+    copied: 'コピーしました',
+    downloaded: 'ダウンロードしました',
+    syntaxError: '構文エラー：{{msg}}'
   },
   faq: {
     title: 'FAQ',
@@ -74,4 +77,3 @@ export default {
     p4: 'ご質問は GitHub の Issue でご連絡ください。'
   }
 };
-

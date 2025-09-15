@@ -49,12 +49,18 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
   const isDark = mode === 'dark';
   const algorithm = isDark ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm;
 
-  // init lang from URL (?lang=) or localStorage or detector
+  // init lang from URL (?lang=) or hash (?lang=) or localStorage or detector
   useEffect(() => {
     const url = new URL(window.location.href);
     const qsLang = url.searchParams.get('lang') as Lang | null;
+    let hashLang: Lang | null = null;
+    if (!qsLang && typeof window !== 'undefined' && window.location.hash.includes('?')) {
+      const idx = window.location.hash.indexOf('?');
+      const sp = new URLSearchParams(window.location.hash.slice(idx + 1));
+      hashLang = (sp.get('lang') as Lang | null);
+    }
     const saved = (localStorage.getItem(LANG_KEY) as Lang | null);
-    const initial = (qsLang || saved || (i18n.language as Lang) || 'zh');
+    const initial = (qsLang || hashLang || saved || (i18n.language as Lang) || 'zh');
     if (['zh', 'en', 'ja'].includes(initial)) {
       setLang(initial as Lang);
       i18n.changeLanguage(initial);

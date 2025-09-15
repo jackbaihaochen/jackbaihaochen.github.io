@@ -1,10 +1,12 @@
 import { Card, List, Typography, Space, Tag } from 'antd';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { useThemeMode } from '@/theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const { t } = useTranslation();
+  const { lang } = useThemeMode();
   const tools = [
     {
       key: 'json-formatter',
@@ -53,7 +55,7 @@ export default function Home() {
           dataSource={tools}
           renderItem={(item) => (
             <List.Item key={item.key}>
-              <Link to={item.path}>
+              <Link to={`${item.path}?lang=${lang}`}>
                 <Card hoverable title={item.name}>
                   <Space direction="vertical">
                     <div>{item.desc}</div>
@@ -71,7 +73,7 @@ export default function Home() {
       <div>
         <Typography.Title level={3}>{t('home.faqTitle')}</Typography.Title>
         <Typography.Paragraph type="secondary">
-          <Link to="/faq">{t('home.faqMore')}</Link>
+          <Link to={`/faq?lang=${lang}`}>{t('home.faqMore')}</Link>
         </Typography.Paragraph>
       </div>
     </Space>

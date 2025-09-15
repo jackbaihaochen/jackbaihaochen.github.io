@@ -44,7 +44,10 @@ export default {
     ok: '已完成',
     valid: '语法有效',
     placeholder: '{"hello":"world"}',
-    note: '本工具在浏览器本地完成 JSON 解析与格式化（调用 JavaScript 原生 JSON.parse 与 JSON.stringify）。不会上传你的数据。'
+    note: '本工具在浏览器本地完成 JSON 解析与格式化（调用 JavaScript 原生 JSON.parse 与 JSON.stringify）。不会上传你的数据。',
+    copied: '已复制',
+    downloaded: '已下载',
+    syntaxError: '语法错误：{{msg}}'
   },
   faq: {
     title: '常见问题（FAQ）',
@@ -74,4 +77,3 @@ export default {
     p4: '如对隐私有进一步疑问或建议，欢迎通过 GitHub 提交 Issue 与我们联系。'
   }
 };
-

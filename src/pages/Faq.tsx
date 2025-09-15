@@ -15,7 +15,7 @@ export default function Faq() {
     <div>
       <HelmetProvider>
         <Helmet>
-          <title>常见问题（FAQ）｜在线工具箱</title>
+          <title>{t('faq.title')}｜{t('brand')}</title>
           <meta name="description" content="关于在线工具箱的常见问题：隐私、数据处理、功能路线、开源与反馈等。" />
           <link rel="canonical" href="https://jackbaihaochen.github.io/faq.html" />
           <script type="application/ld+json">

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useMemo } from 'react';
+import React, { PropsWithChildren, useEffect, useMemo } from 'react';
 import { Layout, Menu, theme, Typography, Space, Switch, Tooltip, Select } from 'antd';
 import { MoonOutlined, SunOutlined } from '@ant-design/icons';
 import { useThemeMode } from '@/theme/ThemeProvider';
@@ -32,6 +32,24 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return [found === '/' ? '/' : found];
   }, [location.pathname]);
 
+  // keep URL lang param in sync with current language
+  useEffect(() => {
+    const current = search.get('lang');
+    if (lang && current !== lang) {
+      const sp = new URLSearchParams(search);
+      sp.set('lang', lang);
+      setSearch(sp, { replace: true });
+    }
+  }, [lang]);
+
+  // if URL lang changes (via user manually editing URL/back-forward), update app language
+  useEffect(() => {
+    const qs = search.get('lang');
+    if (qs && qs !== lang && ['zh', 'en', 'ja'].includes(qs)) {
+      setLang(qs as any);
+    }
+  }, [search]);
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ position: 'sticky', top: 0, zIndex: 10, display: 'flex', alignItems: 'center' }}>
@@ -41,7 +59,12 @@ export default function SiteLayout({ children }: PropsWithChildren) {
           mode="horizontal"
           selectedKeys={selectedKeys}
           items={routes}
-          onClick={(e) => navigate(e.key)}
+          onClick={(e) => {
+            const sp = new URLSearchParams(search);
+            if (lang) sp.set('lang', lang);
+            const qs = sp.toString();
+            navigate(qs ? `${e.key}?${qs}` : e.key);
+          }}
           style={{ flex: 1, minWidth: 0 }}
         />
         <Space>

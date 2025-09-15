@@ -44,7 +44,10 @@ export default {
     ok: 'Done',
     valid: 'Valid JSON',
     placeholder: '{"hello":"world"}',
-    note: 'This tool parses and formats JSON locally in your browser using native JSON.parse and JSON.stringify. No data leaves your device.'
+    note: 'This tool parses and formats JSON locally in your browser using native JSON.parse and JSON.stringify. No data leaves your device.',
+    copied: 'Copied',
+    downloaded: 'Downloaded',
+    syntaxError: 'Syntax error: {{msg}}'
   },
   faq: {
     title: 'FAQ',
@@ -74,4 +77,3 @@ export default {
     p4: 'Questions? Please open an issue on GitHub.'
   }
 };
-

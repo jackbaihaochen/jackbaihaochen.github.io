@@ -53,7 +53,7 @@ export default function JsonFormatter() {
   const onCopy = async () => {
     if (!output) return;
     await navigator.clipboard.writeText(output);
-    message.success('已复制');
+    message.success(t('json.copied'));
   };
 
   const onDownload = () => {
@@ -64,7 +64,7 @@ export default function JsonFormatter() {
     a.download = 'formatted.json';
     a.click();
     URL.revokeObjectURL(a.href);
-    message.success('已下载');
+    message.success(t('json.downloaded'));
   };
 
   return (
@@ -92,7 +92,7 @@ export default function JsonFormatter() {
         <Typography.Text type="secondary">{t('json.subtitle')}</Typography.Text>
       </div>
 
-      {error && <Alert type="error" showIcon message={`语法错误：${error}`} />}
+      {error && <Alert type="error" showIcon message={t('json.syntaxError', { msg: error })} />}
       {ok && <Alert type="success" showIcon message={ok} />}
 
       <Row gutter={[16, 16]}>
