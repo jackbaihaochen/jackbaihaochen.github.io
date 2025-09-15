@@ -28,10 +28,11 @@ export default function SiteLayout({ children }: PropsWithChildren) {
   const routes = useRoutesLabels();
 
   const selectedKeys = useMemo(() => {
-    const m = routes.map(r => r.key);
-    const found = m.find(k => location.pathname.startsWith(k)) || '/';
-    return [found === '/' ? '/' : found];
-  }, [location.pathname]);
+    const keys = routes.map(r => r.key);
+    const path = location.pathname;
+    const match = [...keys].sort((a, b) => b.length - a.length).find(k => path === k || path.startsWith(k));
+    return [match || '/'];
+  }, [location.pathname, routes]);
 
   // keep URL lang param in sync with current language
   useEffect(() => {
@@ -54,7 +55,29 @@ export default function SiteLayout({ children }: PropsWithChildren) {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ position: 'sticky', top: 0, zIndex: 10, display: 'flex', alignItems: 'center' }}>
-        <div style={{ color: token.colorText, fontWeight: 700, marginRight: 16, whiteSpace: 'nowrap' }}>{t('brand')}</div>
+        <div
+          onClick={() => {
+            const sp = new URLSearchParams(search);
+            if (lang) sp.set('lang', lang);
+            const qs = sp.toString();
+            navigate(qs ? `/?${qs}` : '/');
+          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              const sp = new URLSearchParams(search);
+              if (lang) sp.set('lang', lang);
+              const qs = sp.toString();
+              navigate(qs ? `/?${qs}` : '/');
+            }
+          }}
+          style={{ color: token.colorWhite, fontWeight: 700, marginRight: 16, whiteSpace: 'nowrap', cursor: 'pointer', userSelect: 'none' }}
+          aria-label={t('nav.home')}
+          title={t('nav.home')}
+        >
+          {t('brand')}
+        </div>
         <Menu
           theme="dark"
           mode="horizontal"
