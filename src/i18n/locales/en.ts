@@ -3,6 +3,7 @@ export default {
   nav: {
     home: 'Home',
     json: 'JSON Formatter',
+    jsonyaml: 'JSON ↔ YAML',
     faq: 'FAQ',
     privacy: 'Privacy'
   },
@@ -27,8 +28,32 @@ export default {
         desc: 'Pretty/Minify/Validate/Copy/Download online',
         tagDev: 'Developer',
         tagFmt: 'Format'
+      },
+      jsonyaml: {
+        name: 'JSON ↔ YAML',
+        desc: 'Convert both ways · Validate · Copy · Download',
+        tagDev: 'Developer',
+        tagConv: 'Convert'
       }
     }
+  },
+  jsonyaml: {
+    title: 'JSON ↔ YAML Converter',
+    subtitle: 'Runs locally in your browser — no upload',
+    jsonInput: 'JSON Input',
+    yamlInput: 'YAML Input',
+    toYaml: 'JSON → YAML',
+    toJson: 'YAML → JSON',
+    clear: 'Clear',
+    copy: 'Copy',
+    downloadYaml: 'Download .yaml',
+    downloadJson: 'Download .json',
+    ok: 'Done',
+    jsonErr: 'JSON syntax error: {{msg}}',
+    yamlErr: 'YAML syntax error: {{msg}}',
+    jsonPlaceholder: '{"hello":"world"}',
+    yamlPlaceholder: 'hello: world',
+    note: 'This tool uses native JSON.parse / JSON.stringify and js-yaml to convert both ways locally on your device.'
   },
   json: {
     title: 'JSON Formatter',

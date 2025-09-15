@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
 import Home from './pages/Home';
 import JsonFormatter from './pages/JsonFormatter';
+import JsonYaml from './pages/JsonYaml';
 import Faq from './pages/Faq';
 import Privacy from './pages/Privacy';
 
@@ -11,6 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/json-formatter" element={<JsonFormatter />} />
+        <Route path="/json-yaml" element={<JsonYaml />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<Navigate to="/" replace />} />
@@ -18,4 +20,3 @@ export default function App() {
     </SiteLayout>
   );
 }
-

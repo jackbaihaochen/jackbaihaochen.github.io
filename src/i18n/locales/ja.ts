@@ -3,6 +3,7 @@ export default {
   nav: {
     home: 'ホーム',
     json: 'JSON フォーマッタ',
+    jsonyaml: 'JSON ↔ YAML 変換',
     faq: 'FAQ',
     privacy: 'プライバシー'
   },
@@ -27,8 +28,32 @@ export default {
         desc: 'オンラインで整形／圧縮／検証／コピー／ダウンロード',
         tagDev: '開発者',
         tagFmt: '整形'
+      },
+      jsonyaml: {
+        name: 'JSON ↔ YAML 変換',
+        desc: '双方向変換・検証・コピー・ダウンロード（フロントのみ）',
+        tagDev: '開発者',
+        tagConv: '変換'
       }
     }
+  },
+  jsonyaml: {
+    title: 'JSON ↔ YAML 変換',
+    subtitle: 'ブラウザ内でローカル処理・アップロードなし',
+    jsonInput: 'JSON 入力',
+    yamlInput: 'YAML 入力',
+    toYaml: 'JSON → YAML',
+    toJson: 'YAML → JSON',
+    clear: 'クリア',
+    copy: 'コピー',
+    downloadYaml: 'ダウンロード .yaml',
+    downloadJson: 'ダウンロード .json',
+    ok: '完了',
+    jsonErr: 'JSON 構文エラー：{{msg}}',
+    yamlErr: 'YAML 構文エラー：{{msg}}',
+    jsonPlaceholder: '{"hello":"world"}',
+    yamlPlaceholder: 'hello: world',
+    note: '本ツールは JSON.parse / JSON.stringify と js-yaml を用いてデバイス上で双方向変換します。'
   },
   json: {
     title: 'JSON フォーマッタ',

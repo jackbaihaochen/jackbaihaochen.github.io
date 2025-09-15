@@ -42,4 +42,5 @@
   - `public/faq.html` → 重定向至 `/#/faq`
   - `public/privacy.html` → 重定向至 `/#/privacy`
   - `public/tools/json-formatter/index.html` → 重定向至 `/#/json-formatter`
+  - `public/tools/json-yaml/index.html` → 重定向至 `/#/json-yaml`
   - 这些页面也已内置 favicon 与 manifest 引用。

@@ -3,6 +3,7 @@ export default {
   nav: {
     home: '首页',
     json: 'JSON 格式化',
+    jsonyaml: 'JSON ↔ YAML 转换',
     faq: 'FAQ',
     privacy: '隐私'
   },
@@ -27,8 +28,32 @@ export default {
         desc: '在线美化 / 压缩 / 校验 / 复制 / 下载',
         tagDev: '开发者',
         tagFmt: '格式化'
+      },
+      jsonyaml: {
+        name: 'JSON ↔ YAML 转换',
+        desc: '相互转换 / 校验 / 复制 / 下载（纯前端）',
+        tagDev: '开发者',
+        tagConv: '转换'
       }
     }
+  },
+  jsonyaml: {
+    title: 'JSON ↔ YAML 转换',
+    subtitle: '本地解析与转换，不上传任何数据',
+    jsonInput: 'JSON 输入',
+    yamlInput: 'YAML 输入',
+    toYaml: 'JSON → YAML',
+    toJson: 'YAML → JSON',
+    clear: '清空',
+    copy: '复制',
+    downloadYaml: '下载 .yaml',
+    downloadJson: '下载 .json',
+    ok: '已完成',
+    jsonErr: 'JSON 语法错误：{{msg}}',
+    yamlErr: 'YAML 语法错误：{{msg}}',
+    jsonPlaceholder: '{"hello":"world"}',
+    yamlPlaceholder: 'hello: world',
+    note: '本工具使用浏览器原生 JSON.parse / JSON.stringify 与 js-yaml 在你的设备本地进行双向转换。'
   },
   json: {
     title: 'JSON 格式化工具',

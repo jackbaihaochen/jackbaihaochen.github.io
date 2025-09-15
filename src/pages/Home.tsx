@@ -15,13 +15,20 @@ export default function Home() {
       path: '/json-formatter',
       tags: [t('home.tools.json.tagDev'), t('home.tools.json.tagFmt')]
     },
+    {
+      key: 'json-yaml',
+      name: t('home.tools.jsonyaml.name'),
+      desc: t('home.tools.jsonyaml.desc'),
+      path: '/json-yaml',
+      tags: [t('home.tools.jsonyaml.tagDev'), t('home.tools.jsonyaml.tagConv')]
+    },
   ];
 
   return (
     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
       <HelmetProvider>
         <Helmet>
-          <title>{t('home.title')}｜{t('home.tools.json.name')}</title>
+          <title>{t('home.title')}｜{t('home.tools.json.name')}｜{t('home.tools.jsonyaml.name')}</title>
           <meta name="description" content={t('home.subtitle')} />
           <link rel="canonical" href="https://jackbaihaochen.github.io/" />
           <script type="application/ld+json">
