@@ -2,11 +2,13 @@ import { useMemo, useState } from 'react';
 import { Button, Col, Input, Row, Space, Typography, message, Alert, Card } from 'antd';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useThemeMode } from '@/theme/ThemeProvider';
 
 const { TextArea } = Input;
 
 export default function JsonFormatter() {
   const { t } = useTranslation();
+  const { lang } = useThemeMode();
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -71,23 +73,27 @@ export default function JsonFormatter() {
     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
       <HelmetProvider>
         <Helmet>
-          <title>{t('json.title')}｜在线美化/压缩/校验/复制/下载｜纯前端零上传</title>
-          <meta name="description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
-          <meta name="keywords" content={'JSON 格式化, JSON 美化, JSON 压缩, JSON 校验, JSON 在线, JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON lint'} />
+          <title>{t('json.seoTitle')}</title>
+          <meta name="description" content={t('json.seoDescription')} />
+          <meta name="keywords" content={t('json.keywords')} />
           <link rel="canonical" href="https://jackbaihaochen.github.io/tools/json-formatter/" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/tools/json-formatter/?lang=zh`} hreflang="zh-CN" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/tools/json-formatter/?lang=en`} hreflang="en" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/tools/json-formatter/?lang=ja`} hreflang="ja" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/tools/json-formatter/`} hreflang="x-default" />
           {/* Open Graph / Twitter */}
           <meta property="og:type" content="website" />
-          <meta property="og:title" content={`${t('json.title')}｜${t('json.subtitle')}`} />
-          <meta property="og:description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
+          <meta property="og:title" content={t('json.seoTitle')} />
+          <meta property="og:description" content={t('json.seoDescription')} />
           <meta property="og:url" content="https://jackbaihaochen.github.io/tools/json-formatter/" />
           <meta property="og:site_name" content={t('brand')} />
-          <meta property="og:locale" content="zh_CN" />
+          <meta property="og:locale" content={{ zh: 'zh_CN', en: 'en_US', ja: 'ja_JP' }[lang as 'zh' | 'en' | 'ja'] || 'zh_CN'} />
           <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <meta property="og:image:width" content="512" />
           <meta property="og:image:height" content="512" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={`${t('json.title')}｜${t('json.subtitle')}`} />
-          <meta name="twitter:description" content={'在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。'} />
+          <meta name="twitter:title" content={t('json.seoTitle')} />
+          <meta name="twitter:description" content={t('json.seoDescription')} />
           <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <script type="application/ld+json">
             {JSON.stringify({

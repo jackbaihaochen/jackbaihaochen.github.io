@@ -19,6 +19,9 @@ export default {
   home: {
     title: 'Web Toolbox',
     subtitle: 'Front‑end only · Privacy‑friendly · Growing set of tools',
+    seoTitle: 'Online Toolbox | JSON Formatter | JSON ↔ YAML Converter | Client‑side only',
+    seoDescription: 'Free, privacy‑friendly developer tools: JSON formatting/minify/validation and JSON ↔ YAML conversion. All processing happens locally in your browser — no data collection or uploads.',
+    keywords: 'online tools, JSON formatter, JSON minify, JSON validator, JSON beautifier, JSON to YAML, YAML to JSON, developer tools, client‑side only, privacy friendly',
     catalog: 'Tools',
     faqTitle: 'FAQ',
     faqMore: 'Full FAQ',
@@ -40,6 +43,9 @@ export default {
   jsonyaml: {
     title: 'JSON ↔ YAML Converter',
     subtitle: 'Runs locally in your browser — no upload',
+    seoTitle: 'JSON ↔ YAML Converter | Bidirectional Convert/Validate/Copy/Download | Client‑side only',
+    seoDescription: 'Convert JSON and YAML in both directions with validation, copy and download. Processing happens locally in your browser.',
+    keywords: 'JSON to YAML, YAML to JSON, JSON YAML converter, JSON YAML validator, online converter',
     jsonInput: 'JSON Input',
     yamlInput: 'YAML Input',
     toYaml: 'JSON → YAML',
@@ -58,6 +64,9 @@ export default {
   json: {
     title: 'JSON Formatter',
     subtitle: 'Pretty, minify, validate, copy and download',
+    seoTitle: 'JSON Formatter | Beautify/Minify/Validate/Copy/Download | Client‑side only',
+    seoDescription: 'Format and minify JSON online, validate syntax, copy and download — all processed locally in your browser. No uploads.',
+    keywords: 'JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON online, JSON lint',
     input: 'Input',
     output: 'Output',
     beautify: 'Pretty',
@@ -77,6 +86,9 @@ export default {
   faq: {
     title: 'FAQ',
     subtitle: 'Privacy, security and roadmap',
+    seoTitle: 'FAQ | Online Toolbox',
+    seoDescription: 'Common questions: privacy, local processing, roadmap, open source and feedback.',
+    keywords: 'FAQ, privacy, local processing, zero upload, security, open source, roadmap',
     q1: 'Why is it privacy‑friendly?',
     a1: 'All tools run entirely in your browser. Data is neither stored nor uploaded.',
     q2: 'Which browsers are supported?',
@@ -89,6 +101,9 @@ export default {
   privacy: {
     title: 'Privacy Policy',
     subtitle: 'Front‑end only · Zero upload · Privacy‑friendly',
+    seoTitle: 'Privacy Policy | Online Toolbox',
+    seoDescription: 'Client‑side only, zero upload: tools run locally in your browser; no data collection or persistent storage.',
+    keywords: 'privacy policy, data protection, zero upload, client‑side, privacy‑friendly',
     h1: 'How we handle your data',
     p1: 'All tools run locally in your browser. Processing (parse/transform/format) happens in memory on your device.',
     li1: 'No input is collected',

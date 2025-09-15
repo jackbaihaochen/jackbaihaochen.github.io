@@ -1,30 +1,36 @@
 import { Typography } from 'antd';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useThemeMode } from '@/theme/ThemeProvider';
 
 export default function Privacy() {
   const { t } = useTranslation();
+  const { lang } = useThemeMode();
   return (
     <div>
       <HelmetProvider>
         <Helmet>
-          <title>{t('privacy.title')}｜{t('brand')}</title>
-          <meta name="description" content={t('privacy.subtitle')} />
-          <meta name="keywords" content="隐私政策, 数据保护, 零上传, 本地处理, 纯前端, Privacy Policy" />
+          <title>{t('privacy.seoTitle')}</title>
+          <meta name="description" content={t('privacy.seoDescription')} />
+          <meta name="keywords" content={t('privacy.keywords')} />
           <link rel="canonical" href="https://jackbaihaochen.github.io/privacy.html" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/privacy.html?lang=zh`} hreflang="zh-CN" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/privacy.html?lang=en`} hreflang="en" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/privacy.html?lang=ja`} hreflang="ja" />
+          <link rel="alternate" href={`https://jackbaihaochen.github.io/privacy.html`} hreflang="x-default" />
           {/* Open Graph / Twitter */}
           <meta property="og:type" content="website" />
-          <meta property="og:title" content={`${t('privacy.title')}｜${t('brand')}`} />
-          <meta property="og:description" content={t('privacy.subtitle')} />
+          <meta property="og:title" content={t('privacy.seoTitle')} />
+          <meta property="og:description" content={t('privacy.seoDescription')} />
           <meta property="og:url" content="https://jackbaihaochen.github.io/privacy.html" />
           <meta property="og:site_name" content={t('brand')} />
-          <meta property="og:locale" content="zh_CN" />
+          <meta property="og:locale" content={{ zh: 'zh_CN', en: 'en_US', ja: 'ja_JP' }[lang as 'zh' | 'en' | 'ja'] || 'zh_CN'} />
           <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <meta property="og:image:width" content="512" />
           <meta property="og:image:height" content="512" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={`${t('privacy.title')}｜${t('brand')}`} />
-          <meta name="twitter:description" content={t('privacy.subtitle')} />
+          <meta name="twitter:title" content={t('privacy.seoTitle')} />
+          <meta name="twitter:description" content={t('privacy.seoDescription')} />
           <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
           <script type="application/ld+json">
             {JSON.stringify({

@@ -19,6 +19,9 @@ export default {
   home: {
     title: '在线工具箱',
     subtitle: '纯前端 · 隐私友好 · 持续扩充',
+    seoTitle: '在线工具箱｜JSON 格式化｜JSON ↔ YAML 转换｜纯前端不上传',
+    seoDescription: '免费隐私友好的在线开发者工具：JSON 格式化/压缩/校验与 JSON ↔ YAML 双向转换等，所有处理在浏览器本地完成，不收集不上传你的数据。',
+    keywords: '在线工具, 在线 JSON 工具, JSON 格式化, JSON 校验, JSON 压缩, JSON 转 YAML, YAML 转 JSON, 开发者工具, 纯前端, 零上传, 隐私友好',
     catalog: '工具目录',
     faqTitle: '常见问题（FAQ）',
     faqMore: 'FAQ 全文',
@@ -40,6 +43,9 @@ export default {
   jsonyaml: {
     title: 'JSON ↔ YAML 转换',
     subtitle: '本地解析与转换，不上传任何数据',
+    seoTitle: 'JSON ↔ YAML 转换｜双向转换/校验/复制/下载｜纯前端零上传',
+    seoDescription: 'JSON 与 YAML 在线双向转换与校验，支持复制和下载，处理全在浏览器本地完成，不上传任何数据。',
+    keywords: 'JSON 转 YAML, YAML 转 JSON, JSON to YAML, YAML to JSON, JSON YAML 在线转换, JSON YAML validator, JSON YAML converter',
     jsonInput: 'JSON 输入',
     yamlInput: 'YAML 输入',
     toYaml: 'JSON → YAML',
@@ -58,6 +64,9 @@ export default {
   json: {
     title: 'JSON 格式化工具',
     subtitle: '一键格式化、压缩、校验、复制与下载',
+    seoTitle: 'JSON 格式化｜在线美化/压缩/校验/复制/下载｜纯前端零上传',
+    seoDescription: '在线 JSON 格式化与压缩，语法校验、复制与下载，全部在浏览器本地完成，不上传任何数据。',
+    keywords: 'JSON 格式化, JSON 美化, JSON 压缩, JSON 校验, JSON 在线, JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON lint',
     input: '输入',
     output: '输出',
     beautify: '美化',
@@ -77,6 +86,9 @@ export default {
   faq: {
     title: '常见问题（FAQ）',
     subtitle: '关于隐私、安全与功能规划',
+    seoTitle: '常见问题（FAQ）｜在线工具箱',
+    seoDescription: '关于在线工具箱的常见问题：隐私、数据处理、功能路线、开源与反馈等。',
+    keywords: 'FAQ, 常见问题, 隐私, 数据处理, 安全, 零上传, 本地处理, 开源, 路线图',
     q1: '为什么说隐私友好？',
     a1: '所有工具均为纯前端实现，数据只在你的浏览器内存中处理，既不存储也不上传。',
     q2: '支持哪些浏览器？',
@@ -89,6 +101,9 @@ export default {
   privacy: {
     title: '隐私声明',
     subtitle: '纯前端 · 零数据上传 · 隐私友好',
+    seoTitle: '隐私政策｜在线工具箱',
+    seoDescription: '纯前端、零上传：所有工具在你的浏览器本地运行，不收集数据，不写入持久存储。',
+    keywords: '隐私政策, 数据保护, 零上传, 本地处理, 纯前端, Privacy Policy',
     h1: '我们如何处理你的数据',
     p1: '本网站所有工具均在浏览器本地运行，涉及的数据处理（如解析、转换、格式化等）均发生在你的设备内存中。',
     li1: '不收集任何输入内容',
