@@ -22,6 +22,13 @@ export default function Home() {
       path: '/json-yaml',
       tags: [t('home.tools.jsonyaml.tagDev'), t('home.tools.jsonyaml.tagConv')]
     },
+    {
+      key: 'base64',
+      name: t('home.tools.base64.name'),
+      desc: t('home.tools.base64.desc'),
+      path: '/base64',
+      tags: [t('home.tools.base64.tagDev'), t('home.tools.base64.tagEnc')]
+    },
   ];
 
   return (

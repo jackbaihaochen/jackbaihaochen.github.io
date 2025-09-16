@@ -4,6 +4,7 @@ export default {
     home: 'Home',
     json: 'JSON Formatter',
     jsonyaml: 'JSON ↔ YAML',
+    base64: 'Base64',
     faq: 'FAQ',
     privacy: 'Privacy'
   },
@@ -37,6 +38,12 @@ export default {
         desc: 'Convert both ways · Validate · Copy · Download',
         tagDev: 'Developer',
         tagConv: 'Convert'
+      },
+      base64: {
+        name: 'Base64',
+        desc: 'Convert text ↔ Base64 (Unicode friendly)',
+        tagDev: 'Developer',
+        tagEnc: 'Encode'
       }
     }
   },
@@ -82,6 +89,27 @@ export default {
     copied: 'Copied',
     downloaded: 'Downloaded',
     syntaxError: 'Syntax error: {{msg}}'
+  },
+  base64: {
+    title: 'Base64 Encode & Decode',
+    subtitle: 'Convert between text and Base64 locally in your browser',
+    seoTitle: 'Base64 Encode & Decode | Text ↔ Base64 | Unicode support | Client-side only',
+    seoDescription: 'Online Base64 encoder and decoder with Unicode support. Runs completely in your browser with no uploads.',
+    keywords: 'Base64 encode, Base64 decode, Base64 online, text to Base64, Base64 converter',
+    plainTitle: 'Plain text',
+    encodedTitle: 'Base64 text',
+    plainPlaceholder: 'Hello, 世界',
+    encodedPlaceholder: 'SGVsbG8sIOS4lueVjA==',
+    encode: 'Encode → Base64',
+    decode: 'Decode → Text',
+    copy: 'Copy',
+    clear: 'Clear',
+    encoded: 'Encoded to Base64',
+    decoded: 'Decoded to text',
+    copied: 'Copied',
+    encodeError: 'Encode failed: {{msg}}',
+    decodeError: 'Decode failed: {{msg}}',
+    note: 'Uses TextEncoder/TextDecoder and browser Base64 APIs locally. Your data never leaves the device.'
   },
   faq: {
     title: 'FAQ',

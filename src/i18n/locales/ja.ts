@@ -4,6 +4,7 @@ export default {
     home: 'ホーム',
     json: 'JSON フォーマッタ',
     jsonyaml: 'JSON ↔ YAML 変換',
+    base64: 'Base64 変換',
     faq: 'FAQ',
     privacy: 'プライバシー'
   },
@@ -37,6 +38,12 @@ export default {
         desc: '双方向変換・検証・コピー・ダウンロード（フロントのみ）',
         tagDev: '開発者',
         tagConv: '変換'
+      },
+      base64: {
+        name: 'Base64 変換',
+        desc: 'テキスト ↔ Base64 相互変換（Unicode 対応）',
+        tagDev: '開発者',
+        tagEnc: 'エンコード'
       }
     }
   },
@@ -82,6 +89,27 @@ export default {
     copied: 'コピーしました',
     downloaded: 'ダウンロードしました',
     syntaxError: '構文エラー：{{msg}}'
+  },
+  base64: {
+    title: 'Base64 エンコード／デコード',
+    subtitle: 'テキストと Base64 をブラウザ内で相互変換',
+    seoTitle: 'Base64 エンコード・デコード｜テキスト ↔ Base64｜Unicode 対応｜クライアントサイドのみ',
+    seoDescription: 'Unicode 文字に対応した Base64 のエンコード／デコードをオンラインで提供。すべてブラウザ内で処理し、データ送信はありません。',
+    keywords: 'Base64 エンコード, Base64 デコード, Base64 オンライン, テキスト Base64, Base64 変換',
+    plainTitle: 'プレーンテキスト',
+    encodedTitle: 'Base64 テキスト',
+    plainPlaceholder: 'Hello, 世界',
+    encodedPlaceholder: 'SGVsbG8sIOS4lueVjA==',
+    encode: 'エンコード → Base64',
+    decode: 'デコード → テキスト',
+    copy: 'コピー',
+    clear: 'クリア',
+    encoded: 'Base64 に変換しました',
+    decoded: 'テキストにデコードしました',
+    copied: 'コピーしました',
+    encodeError: 'エンコードに失敗しました：{{msg}}',
+    decodeError: 'デコードに失敗しました：{{msg}}',
+    note: 'ブラウザ標準の TextEncoder/TextDecoder と Base64 API を用いてローカルで処理します。データは送信されません。'
   },
   faq: {
     title: 'FAQ',

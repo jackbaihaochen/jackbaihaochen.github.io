@@ -4,6 +4,7 @@ export default {
     home: '首页',
     json: 'JSON 格式化',
     jsonyaml: 'JSON ↔ YAML 转换',
+    base64: 'Base64 编解码',
     faq: 'FAQ',
     privacy: '隐私'
   },
@@ -37,6 +38,12 @@ export default {
         desc: '相互转换 / 校验 / 复制 / 下载（纯前端）',
         tagDev: '开发者',
         tagConv: '转换'
+      },
+      base64: {
+        name: 'Base64 编解码',
+        desc: '文本 ↔ Base64 相互转换（支持 Unicode）',
+        tagDev: '开发者',
+        tagEnc: '编码'
       }
     }
   },
@@ -82,6 +89,27 @@ export default {
     copied: '已复制',
     downloaded: '已下载',
     syntaxError: '语法错误：{{msg}}'
+  },
+  base64: {
+    title: 'Base64 编解码工具',
+    subtitle: '本地完成文本与 Base64 之间的互转',
+    seoTitle: 'Base64 编解码｜文本 ↔ Base64 互转｜支持 Unicode｜纯前端零上传',
+    seoDescription: '在线 Base64 编码与解码工具，支持 Unicode 字符，浏览器本地完成转换，不上传任何数据。',
+    keywords: 'Base64 编码, Base64 解码, Base64 在线, Base64 转换, 文本 Base64, Base64 decoder, Base64 encoder',
+    plainTitle: '原始文本',
+    encodedTitle: 'Base64 文本',
+    plainPlaceholder: 'Hello, 世界',
+    encodedPlaceholder: 'SGVsbG8sIOS4lueVjA==',
+    encode: '编码 → Base64',
+    decode: '解码 → 文本',
+    copy: '复制',
+    clear: '清空',
+    encoded: '已转换为 Base64',
+    decoded: '已解码为文本',
+    copied: '已复制',
+    encodeError: '编码失败：{{msg}}',
+    decodeError: '解码失败：{{msg}}',
+    note: '转换基于浏览器内置 TextEncoder/TextDecoder 与 Base64 API，在你的设备本地运行，不会上传数据。'
   },
   faq: {
     title: '常见问题（FAQ）',

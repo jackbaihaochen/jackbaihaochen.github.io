@@ -13,6 +13,7 @@ function useRoutesLabels() {
     { key: '/', label: t('nav.home') },
     { key: '/json-formatter', label: t('nav.json') },
     { key: '/json-yaml', label: t('nav.jsonyaml') },
+    { key: '/base64', label: t('nav.base64') },
     { key: '/faq', label: t('nav.faq') },
     { key: '/privacy', label: t('nav.privacy') },
   ];
