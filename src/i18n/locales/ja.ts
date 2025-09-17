@@ -5,6 +5,7 @@ export default {
     json: 'JSON フォーマッタ',
     jsonyaml: 'JSON ↔ YAML 変換',
     base64: 'Base64 変換',
+    blog: 'ブログ',
     faq: 'FAQ',
     privacy: 'プライバシー'
   },
@@ -19,13 +20,16 @@ export default {
   },
   home: {
     title: 'オンラインツールボックス',
-    subtitle: 'フロントエンドのみ・プライバシー重視・継続拡張',
-    seoTitle: 'オンラインツールボックス｜JSON フォーマッタ｜JSON ↔ YAML 変換｜クライアントサイドのみ',
-    seoDescription: 'プライバシー重視の開発者向けオンラインツール。JSON の整形/圧縮/検証や JSON ↔ YAML の双方向変換をブラウザ内で処理。データ収集・アップロードなし。',
-    keywords: 'オンラインツール, JSON フォーマッタ, JSON 圧縮, JSON 検証, JSON 整形, JSON to YAML, YAML to JSON, 開発者ツール, クライアントサイドのみ, プライバシー重視',
+    subtitle: '無料・多言語・フロントエンド完結の開発者向けツールボックス',
+    seoTitle: '無料オンライン開発者ツールボックス｜JSON フォーマッタ｜JSON↔YAML｜Base64 テキスト & 画像',
+    seoDescription: '無料で使えるプライバシー重視の開発者ツール：JSON 整形/検証、JSON↔YAML 双方向変換、Base64 テキストと画像のエンコード/デコード、多言語ブログ付き。すべてブラウザ内で完結。',
+    keywords: '無料開発者ツール, JSON フォーマッタ, JSON 変換, JSON YAML 変換, Base64 画像 変換, 開発者ブログ, クライアントサイド, プライバシー重視',
     catalog: 'ツール一覧',
     faqTitle: 'FAQ',
     faqMore: 'FAQ 全文',
+    blogTitle: '最新記事',
+    blogIntro: 'JSON・YAML・Base64 のワークフローを楽にする実践的な解説をお届けします。',
+    blogMore: 'ブログを見る',
     tools: {
       json: {
         name: 'JSON フォーマッタ',
@@ -41,18 +45,143 @@ export default {
       },
       base64: {
         name: 'Base64 変換',
-        desc: 'テキスト ↔ Base64 相互変換（Unicode 対応）',
+        desc: 'テキストと画像の Base64 相互変換（Unicode 対応）',
         tagDev: '開発者',
-        tagEnc: 'エンコード'
+        tagEnc: 'エンコード',
+        tagImg: '画像'
+      }
+    }
+  },
+  blog: {
+    title: '開発者ブログ',
+    subtitle: 'プライバシー重視の開発ツールに関する実践ガイド。',
+    seoTitle: '開発者ブログ｜JSON と Base64 チュートリアル｜オンラインツールボックス',
+    seoDescription: 'JSON・YAML・Base64・プライバシー重視のワークフローを多言語で解説。すべての記事が無料のクライアントサイドツールと組み合わせて使えます。',
+    keywords: '開発者ブログ, JSON チュートリアル, YAML ガイド, Base64 画像変換, 無料開発者ツール, プライバシー重視',
+    latest: '最新記事',
+    readMore: '記事を読む',
+    tagsLabel: 'タグ',
+    publishedLabel: '公開日',
+    updatedLabel: '更新日',
+    readingTimeLabel: '読了時間',
+    moreComing: '今後も記事を追加予定です。お楽しみに！',
+    articles: {
+      jsonBasics: {
+        slug: 'json-basics',
+        title: 'JSON 基礎：構造・検証・ワークフロー改善のヒント',
+        description: 'JSON の構造を理解し、よくあるミスを避け、無料のクライアントサイドツールで素早く検証する方法をまとめました。',
+        summary: 'JSON の仕組みと落とし穴、本番前にローカルで検証する手順を学びましょう。',
+        tags: ['JSON', 'API', 'ベストプラクティス'],
+        published: { iso: '2025-09-17', text: '2025年9月17日' },
+        updated: { iso: '2025-09-17', text: '2025年9月17日' },
+        readingTime: '約6分で読めます',
+        heroAlt: '括弧とノードで構成された JSON ツリーのイラスト'
+      }
+    }
+  },
+  articles: {
+    jsonBasics: {
+      seoTitle: 'JSON 基礎ガイド｜構造と検証のベストプラクティス',
+      seoDescription: 'JSON の構造、典型的な落とし穴、プライバシーを守るローカル検証ワークフローを解説。チェックリストと実践的なコツ付き。',
+      keywords: 'JSON ガイド, JSON チュートリアル, JSON 検証, JSON ベストプラクティス, JSON フォーマッタ',
+      title: 'JSON 基礎：構造・検証・ワークフロー改善のヒント',
+      heroIntro: 'JSON は API レスポンス、設定ファイル、データエクスポート、ログなどあらゆる場面で登場します。概念を押さえておくと作業が格段に速くなります。',
+      readingTime: '約6分で読めます',
+      published: '公開日：2025年9月17日',
+      updated: '更新日：2025年9月17日',
+      sections: [
+        {
+          heading: 'JSON はどんな課題を解決する？',
+          paragraphs: [
+            'JSON（JavaScript Object Notation）は、ほぼすべてのモダンな API や CLI が採用する軽量なデータ交換フォーマットです。機械にとって解析しやすく、人間にとっても読みやすい形式です。',
+            'テキストベースのため、異なる言語やチームでもバージョン管理・ドキュメント・チャットで簡単に共有できます。バイナリ互換性を気にする必要はありません。'
+          ]
+        },
+        {
+          heading: '基本の構成要素を押さえる',
+          paragraphs: [
+            'JSON を構成するのはごく少数の要素です。オブジェクト（`{}`）はキーと値のペア、配列（`[]`）は順序付きコレクション、そして文字列・数値・真偽値・`null` といったプリミティブです。',
+            'API レスポンスを設計する際は、これらを組み合わせてクライアントが安心して依存できるスキーマを作ります。'
+          ],
+          code: {
+            language: 'json',
+            caption: '一般的な API レスポンスを想定したコンパクトな JSON 例。',
+            content: `{
+  "id": "toolbox-42",
+  "name": "Web Toolbox",
+  "features": [
+    "JSON フォーマッタ",
+    "JSON ↔ YAML 変換",
+    "Base64（テキストと画像）"
+  ],
+  "pricing": {
+    "plan": "free",
+    "limits": null
+  },
+  "privacyFriendly": true
+}`
+          }
+        },
+        {
+          heading: 'よくあるミスと対処法',
+          paragraphs: [
+            '経験豊富な開発者でも文法ミスは起こります。早めに気付けばデバッグ時間を大幅に削減できます。'
+          ],
+          list: [
+            '最後のプロパティや配列要素の後に余分なカンマ',
+            '文字列やプロパティ名にシングルクォートを使用してしまう',
+            'コメント（`//`）や置き換え忘れのテンプレートを書く',
+            '文字列内の改行や引用符をエスケープし忘れる',
+            'タブとスペースが混在し、レビュー時に読みにくくなる'
+          ],
+          closing: 'フォーマッタを通せば即座に問題箇所がハイライトされ、不正な JSON の流出を防げます。'
+        },
+        {
+          heading: 'ローカルツールで素早く検証する',
+          paragraphs: [
+            'コミットや共有の前にフォーマッタ／バリデータに通しましょう。厳密な構文チェックとインデント整形を一度で実行できます。',
+            'Web Toolbox の JSON フォーマッタはブラウザ内だけで動作し、機密データをアップロードせずに整形・圧縮・検証できます。',
+            'JSON と YAML を併用しているなら、JSON ↔ YAML ツールで双方を同期させるのが安全です。'
+          ]
+        }
+      ],
+      checklist: {
+        title: '公開前チェックリスト',
+        items: [
+          'フォーマッタや Lint で構文を検証する',
+          'スキーマ通りに必須キーと型が揃っているか確認する',
+          'ログやサンプルを共有する前に機密情報を除去する',
+          'API やインフラ文書の近くに最小限のサンプルを置く'
+        ]
+      },
+      tips: {
+        title: 'ワークフロー向上のヒント',
+        items: [
+          'プリコミットフックや CI に JSON フォーマット／Lint 処理を組み込む。',
+          '正しい JSON サンプルをリポジトリで管理し、レビューでは意図の差分に集中できるようにする。'
+        ]
+      },
+      conclusion: {
+        title: '継続的に鍛える',
+        paragraphs: [
+          'JSON を読む・書く機会を増やすほど、問題点を素早く見抜けるようになります。プライバシーを守るツールでフィードバックサイクルを短縮しましょう。',
+          'Web Toolbox の JSON フォーマッタや JSON ↔ YAML 変換ツールでデータを整え、バイナリをテキストで扱う必要があるときは Base64 ツールも試してみてください。'
+        ]
+      },
+      cta: {
+        title: '次に試すツール',
+        jsonFormatter: 'JSON フォーマッタを開く',
+        jsonYaml: 'JSON ↔ YAML 変換ツールを開く',
+        base64: 'Base64 ツールを開く'
       }
     }
   },
   jsonyaml: {
     title: 'JSON ↔ YAML 変換',
     subtitle: 'ブラウザ内でローカル処理・アップロードなし',
-    seoTitle: 'JSON ↔ YAML 変換｜双方向変換/検証/コピー/ダウンロード｜クライアントサイドのみ',
-    seoDescription: 'JSON と YAML を双方向に変換し、検証・コピー・ダウンロードに対応。処理はブラウザ内で完結。',
-    keywords: 'JSON to YAML, YAML to JSON, JSON YAML 変換, JSON YAML バリデータ, オンライン変換',
+    seoTitle: 'JSON ↔ YAML 変換｜無料の双方向変換・検証｜クライアントサイドのみ',
+    seoDescription: '無料で JSON と YAML を双方向に変換・検証。コピーやダウンロードにも対応し、処理はすべてブラウザ内で完結します。',
+    keywords: '無料 JSON to YAML, 無料 YAML to JSON, JSON YAML 変換, JSON YAML 検証, クライアントサイド変換',
     jsonInput: 'JSON 入力',
     yamlInput: 'YAML 入力',
     toYaml: 'JSON → YAML',
@@ -71,9 +200,9 @@ export default {
   json: {
     title: 'JSON フォーマッタ',
     subtitle: '整形・圧縮・検証・コピー・ダウンロード',
-    seoTitle: 'JSON フォーマッタ｜整形/圧縮/検証/コピー/ダウンロード｜クライアントサイドのみ',
-    seoDescription: 'JSON をオンラインで整形・圧縮し、構文検証、コピー、ダウンロードが可能。処理はブラウザ内で完結、アップロードなし。',
-    keywords: 'JSON フォーマッタ, JSON 整形, JSON 圧縮, JSON 検証, JSON オンライン, JSON lint',
+    seoTitle: 'JSON フォーマッタ｜無料で整形/圧縮/検証｜クライアントサイドのみ',
+    seoDescription: '無料の JSON 整形・圧縮ツール。検証・コピー・ダウンロードに対応し、すべてブラウザ内で処理します。',
+    keywords: '無料 JSON フォーマッタ, JSON 整形, JSON 圧縮, JSON 検証, JSON オンライン, JSON lint',
     input: '入力',
     output: '出力',
     beautify: '整形',
@@ -92,10 +221,10 @@ export default {
   },
   base64: {
     title: 'Base64 エンコード／デコード',
-    subtitle: 'テキストと Base64 をブラウザ内で相互変換',
-    seoTitle: 'Base64 エンコード・デコード｜テキスト ↔ Base64｜Unicode 対応｜クライアントサイドのみ',
-    seoDescription: 'Unicode 文字に対応した Base64 のエンコード／デコードをオンラインで提供。すべてブラウザ内で処理し、データ送信はありません。',
-    keywords: 'Base64 エンコード, Base64 デコード, Base64 オンライン, テキスト Base64, Base64 変換',
+    subtitle: 'ブラウザ内でテキストと画像を相互変換',
+    seoTitle: 'Base64 エンコード・デコード｜テキスト & 画像変換｜クライアントサイドのみ',
+    seoDescription: 'テキストや画像を Base64 と相互変換できる無料ツール。Unicode 対応、画像にも対応、全てローカル処理。',
+    keywords: 'Base64 エンコード, Base64 デコード, Base64 画像変換, テキスト Base64, 画像 Base64, クライアントサイド Base64',
     plainTitle: 'プレーンテキスト',
     encodedTitle: 'Base64 テキスト',
     plainPlaceholder: 'Hello, 世界',
@@ -109,7 +238,22 @@ export default {
     copied: 'コピーしました',
     encodeError: 'エンコードに失敗しました：{{msg}}',
     decodeError: 'デコードに失敗しました：{{msg}}',
-    note: 'ブラウザ標準の TextEncoder/TextDecoder と Base64 API を用いてローカルで処理します。データは送信されません。'
+    note: 'ブラウザ標準の TextEncoder/TextDecoder と Base64 API を用いてローカルで処理し、画像の Data URL にも対応します。データは送信されません。',
+    imageCardTitle: '画像 ↔ Base64',
+    imageIntro: '画像を Base64 Data URL に変換したり、Base64 を画像として表示したりできます。処理は端末内で完結します。',
+    imagePlaceholder: 'data:image/... もしくは純粋な Base64 を貼り付けてください',
+    imageSelect: '画像を選択',
+    imageHelper: 'PNG・JPG・GIF・WebP・SVG に対応。ファイルはアップロードされません。',
+    imageUnsupported: '画像ファイルのみ対応しています。',
+    imageRender: 'Base64 を画像として表示',
+    imageDownload: '画像をダウンロード',
+    imageClear: '画像データをクリア',
+    imageInfo: '現在の画像：{{name}} • {{type}} • {{size}}',
+    imagePreviewLabel: 'プレビュー',
+    imageEncoded: '画像を Base64 に変換しました',
+    imageDecoded: 'Base64 を画像として表示しました',
+    imageEncodeError: '画像の変換に失敗しました：{{msg}}',
+    imageDecodeError: 'Base64 を画像として表示できません：{{msg}}'
   },
   faq: {
     title: 'FAQ',

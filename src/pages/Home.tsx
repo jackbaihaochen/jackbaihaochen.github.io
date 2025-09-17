@@ -4,6 +4,17 @@ import { Link } from 'react-router-dom';
 import { useThemeMode } from '@/theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 
+type BlogPost = {
+  slug: string;
+  title: string;
+  description?: string;
+  summary?: string;
+  tags?: string[];
+  published?: { iso?: string; text?: string };
+  updated?: { iso?: string; text?: string };
+  readingTime?: string;
+};
+
 export default function Home() {
   const { t } = useTranslation();
   const { lang } = useThemeMode();
@@ -27,9 +38,10 @@ export default function Home() {
       name: t('home.tools.base64.name'),
       desc: t('home.tools.base64.desc'),
       path: '/base64',
-      tags: [t('home.tools.base64.tagDev'), t('home.tools.base64.tagEnc')]
+      tags: [t('home.tools.base64.tagDev'), t('home.tools.base64.tagEnc'), t('home.tools.base64.tagImg')]
     },
   ];
+  const blogArticles = Object.values(t('blog.articles', { returnObjects: true }) as Record<string, BlogPost>);
 
   return (
     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
@@ -101,6 +113,47 @@ export default function Home() {
             </List.Item>
           )}
         />
+      </div>
+
+      <div>
+        <Typography.Title level={3}>{t('home.blogTitle')}</Typography.Title>
+        <Typography.Paragraph type="secondary">{t('home.blogIntro')}</Typography.Paragraph>
+        <List
+          grid={{ gutter: 16, xs: 1, sm: 1, md: 1, lg: 2 }}
+          dataSource={blogArticles}
+          renderItem={(post) => (
+            <List.Item key={post.slug}>
+              <Link to={`/blog/${post.slug}?lang=${lang}`}>
+                <Card hoverable title={post.title}>
+                  <Space direction="vertical">
+                    {(post.description || post.summary) && (
+                      <Typography.Paragraph style={{ marginBottom: 0 }}>
+                        {post.description || post.summary}
+                      </Typography.Paragraph>
+                    )}
+                    <Typography.Text type="secondary">
+                      {t('blog.publishedLabel')}: {post?.published?.text || '--'}
+                    </Typography.Text>
+                    {post.readingTime && (
+                      <Typography.Text type="secondary">
+                        {t('blog.readingTimeLabel')}: {post.readingTime}
+                      </Typography.Text>
+                    )}
+                    {post.tags && post.tags.length > 0 && (
+                      <div>
+                        {post.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                      </div>
+                    )}
+                    <Typography.Link>{t('blog.readMore')}</Typography.Link>
+                  </Space>
+                </Card>
+              </Link>
+            </List.Item>
+          )}
+        />
+        <Typography.Paragraph type="secondary">
+          <Link to={`/blog?lang=${lang}`}>{t('home.blogMore')}</Link>
+        </Typography.Paragraph>
       </div>
 
       <div>

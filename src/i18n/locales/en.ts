@@ -5,6 +5,7 @@ export default {
     json: 'JSON Formatter',
     jsonyaml: 'JSON ↔ YAML',
     base64: 'Base64',
+    blog: 'Blog',
     faq: 'FAQ',
     privacy: 'Privacy'
   },
@@ -19,13 +20,16 @@ export default {
   },
   home: {
     title: 'Web Toolbox',
-    subtitle: 'Front‑end only · Privacy‑friendly · Growing set of tools',
-    seoTitle: 'Online Toolbox | JSON Formatter | JSON ↔ YAML Converter | Client‑side only',
-    seoDescription: 'Free, privacy‑friendly developer tools: JSON formatting/minify/validation and JSON ↔ YAML conversion. All processing happens locally in your browser — no data collection or uploads.',
-    keywords: 'online tools, JSON formatter, JSON minify, JSON validator, JSON beautifier, JSON to YAML, YAML to JSON, developer tools, client‑side only, privacy friendly',
-    catalog: 'Tools',
+    subtitle: 'Free, privacy-first, multilingual toolbox for developers',
+    seoTitle: 'Free Online Developer Toolbox | JSON Formatter | JSON ↔ YAML | Base64 Text & Image Converter',
+    seoDescription: 'Free, privacy-friendly developer utilities: JSON formatter/minifier, JSON ↔ YAML converter, Base64 text & image encoder/decoder, plus multilingual blog guides. Everything runs locally in your browser.',
+    keywords: 'free developer tools, online JSON formatter, JSON conversion, JSON YAML converter, Base64 image encoder, Base64 decoder, developer blog, client-side tools, privacy-first utilities',
+    catalog: 'Tool catalog',
     faqTitle: 'FAQ',
     faqMore: 'Full FAQ',
+    blogTitle: 'Latest articles',
+    blogIntro: 'Tutorials and explainers to make JSON, YAML, and Base64 workflows easier.',
+    blogMore: 'Visit blog',
     tools: {
       json: {
         name: 'JSON Formatter',
@@ -41,18 +45,143 @@ export default {
       },
       base64: {
         name: 'Base64',
-        desc: 'Convert text ↔ Base64 (Unicode friendly)',
+        desc: 'Convert text & images ↔ Base64 locally (Unicode friendly)',
         tagDev: 'Developer',
-        tagEnc: 'Encode'
+        tagEnc: 'Encode',
+        tagImg: 'Images'
+      }
+    }
+  },
+  blog: {
+    title: 'Developer Blog',
+    subtitle: 'Actionable guides for privacy-first developer tooling.',
+    seoTitle: 'Developer Blog | JSON & Base64 Tutorials | Web Toolbox',
+    seoDescription: 'Read multilingual tutorials about JSON, YAML, Base64, and privacy-first workflows. Pair every article with free, client-side tools that keep your data local.',
+    keywords: 'developer blog, JSON tutorial, YAML guide, Base64 image converter, free developer tools, privacy-first tooling',
+    latest: 'Latest posts',
+    readMore: 'Read article',
+    tagsLabel: 'Tags',
+    publishedLabel: 'Published',
+    updatedLabel: 'Updated',
+    readingTimeLabel: 'Reading time',
+    moreComing: 'More articles are in the works — stay tuned!',
+    articles: {
+      jsonBasics: {
+        slug: 'json-basics',
+        title: 'JSON essentials: structure, validation, and workflow tips',
+        description: 'Understand JSON structure, avoid common mistakes, and validate payloads quickly with free client-side tools.',
+        summary: 'Learn how JSON works, how to avoid common gotchas, and how to validate payloads locally with free tools.',
+        tags: ['JSON', 'API', 'Best Practices'],
+        published: { iso: '2025-09-17', text: '17 Sep 2025' },
+        updated: { iso: '2025-09-17', text: '17 Sep 2025' },
+        readingTime: '6 min read',
+        heroAlt: 'Illustrated JSON tree made of brackets and nodes'
+      }
+    }
+  },
+  articles: {
+    jsonBasics: {
+      seoTitle: 'JSON Essentials Guide | Web Toolbox Blog',
+      seoDescription: 'Master JSON structure, validation, and developer workflows. Includes a pre-flight checklist and privacy-first tooling tips.',
+      keywords: 'JSON guide, JSON tutorial, JSON validation, JSON best practices, JSON formatter',
+      title: 'JSON essentials: structure, validation, and workflow tips',
+      heroIntro: 'JSON shows up in APIs, configuration files, database exports, and analytics pipelines. A solid mental model keeps you fast and accurate.',
+      readingTime: '6 min read',
+      published: 'Published: 17 Sep 2025',
+      updated: 'Updated: 17 Sep 2025',
+      sections: [
+        {
+          heading: 'What problem does JSON solve?',
+          paragraphs: [
+            'JavaScript Object Notation (JSON) is the lightweight interchange format that nearly every modern API and CLI relies on. It is easy for machines to parse and easy for humans to scan.',
+            'Because JSON is plain text, teams across languages can share payloads through version control, docs, or chat without worrying about binary compatibility.'
+          ]
+        },
+        {
+          heading: 'Know the building blocks',
+          paragraphs: [
+            'JSON is built from a short list of shapes: objects (`{}`) for key–value pairs, arrays (`[]`) for ordered collections, and primitives such as strings, numbers, booleans, or `null`.',
+            'When you design an API response, you are usually composing these shapes into a predictable schema that clients can rely on.'
+          ],
+          code: {
+            language: 'json',
+            caption: 'A compact JSON payload that mirrors common API responses.',
+            content: `{
+  "id": "toolbox-42",
+  "name": "Web Toolbox",
+  "features": [
+    "JSON formatter",
+    "JSON ↔ YAML converter",
+    "Base64 (text & images)"
+  ],
+  "pricing": {
+    "plan": "free",
+    "limits": null
+  },
+  "privacyFriendly": true
+}`
+          }
+        },
+        {
+          heading: 'Frequent mistakes (and easy fixes)',
+          paragraphs: [
+            'Even experienced teams slip on syntax. Catching the mistakes before they hit production saves hours of debugging.'
+          ],
+          list: [
+            'Trailing commas after the last property or array item',
+            'Single quotes instead of double quotes for property names or strings',
+            'Comment lines (`//`) or dangling template placeholders',
+            'Unescaped newline or quote characters inside strings',
+            'Mixing tabs and spaces in a way that confuses reviewers'
+          ],
+          closing: 'A formatter highlights these issues immediately and stops invalid JSON from shipping.'
+        },
+        {
+          heading: 'Validate faster with local tools',
+          paragraphs: [
+            'Before you commit or share a payload, run it through a formatter/validator. The syntax check confirms that your JSON is strictly valid while the formatter keeps indentation consistent.',
+            'The Web Toolbox JSON Formatter runs entirely in your browser, so you can beautify, minify, and lint payloads without uploading sensitive samples.',
+            'If you maintain YAML configs alongside JSON, convert them with the JSON ↔ YAML tool to keep both versions aligned.'
+          ]
+        }
+      ],
+      checklist: {
+        title: 'Pre-flight checklist for JSON payloads',
+        items: [
+          'Validate syntax with a formatter or linter before pushing changes',
+          'Confirm required keys and data types against your schema',
+          'Strip secrets or personal data before sharing sample payloads',
+          'Keep a minimal example alongside API or infrastructure docs'
+        ]
+      },
+      tips: {
+        title: 'Workflow boosters',
+        items: [
+          'Automate linting with a pre-commit hook or CI step that uses your formatter of choice.',
+          'Store canonical JSON samples in version control so teammates can diff intent instead of formatting.'
+        ]
+      },
+      conclusion: {
+        title: 'Keep practicing',
+        paragraphs: [
+          'The more JSON you read and write, the faster you will spot issues. Lean on tools that preserve privacy while accelerating feedback.',
+          'Try the Web Toolbox JSON Formatter or the JSON ↔ YAML converter to keep your payloads clean, then explore the Base64 tool when you need to move binary data as text.'
+        ]
+      },
+      cta: {
+        title: 'Continue with these tools',
+        jsonFormatter: 'Open JSON Formatter',
+        jsonYaml: 'Open JSON ↔ YAML Converter',
+        base64: 'Open Base64 Tool'
       }
     }
   },
   jsonyaml: {
     title: 'JSON ↔ YAML Converter',
     subtitle: 'Runs locally in your browser — no upload',
-    seoTitle: 'JSON ↔ YAML Converter | Bidirectional Convert/Validate/Copy/Download | Client‑side only',
-    seoDescription: 'Convert JSON and YAML in both directions with validation, copy and download. Processing happens locally in your browser.',
-    keywords: 'JSON to YAML, YAML to JSON, JSON YAML converter, JSON YAML validator, online converter',
+    seoTitle: 'JSON ↔ YAML Converter | Free Bidirectional Convert/Validate | Client-side only',
+    seoDescription: 'Convert JSON and YAML in both directions for free with validation, copy, and download options. Processing happens locally in your browser.',
+    keywords: 'free JSON to YAML, free YAML to JSON, JSON YAML converter, JSON YAML validator, client-side converter',
     jsonInput: 'JSON Input',
     yamlInput: 'YAML Input',
     toYaml: 'JSON → YAML',
@@ -71,9 +200,9 @@ export default {
   json: {
     title: 'JSON Formatter',
     subtitle: 'Pretty, minify, validate, copy and download',
-    seoTitle: 'JSON Formatter | Beautify/Minify/Validate/Copy/Download | Client‑side only',
-    seoDescription: 'Format and minify JSON online, validate syntax, copy and download — all processed locally in your browser. No uploads.',
-    keywords: 'JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON online, JSON lint',
+    seoTitle: 'JSON Formatter | Free Beautify/Minify/Validate | Client-side only',
+    seoDescription: 'Free online JSON formatter and minifier with validation, copy, and download. Everything runs locally in your browser — no uploads.',
+    keywords: 'free JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON online, JSON lint',
     input: 'Input',
     output: 'Output',
     beautify: 'Pretty',
@@ -92,10 +221,10 @@ export default {
   },
   base64: {
     title: 'Base64 Encode & Decode',
-    subtitle: 'Convert between text and Base64 locally in your browser',
-    seoTitle: 'Base64 Encode & Decode | Text ↔ Base64 | Unicode support | Client-side only',
-    seoDescription: 'Online Base64 encoder and decoder with Unicode support. Runs completely in your browser with no uploads.',
-    keywords: 'Base64 encode, Base64 decode, Base64 online, text to Base64, Base64 converter',
+    subtitle: 'Convert text and images locally in your browser',
+    seoTitle: 'Base64 Encoder & Decoder | Text & Image Base64 Converter | Client-side only',
+    seoDescription: 'Convert text and images to and from Base64 for free. Unicode-safe, image-friendly, and fully client-side.',
+    keywords: 'Base64 encode, Base64 decode, Base64 image converter, text to Base64, image to Base64, client-side Base64',
     plainTitle: 'Plain text',
     encodedTitle: 'Base64 text',
     plainPlaceholder: 'Hello, 世界',
@@ -109,7 +238,22 @@ export default {
     copied: 'Copied',
     encodeError: 'Encode failed: {{msg}}',
     decodeError: 'Decode failed: {{msg}}',
-    note: 'Uses TextEncoder/TextDecoder and browser Base64 APIs locally. Your data never leaves the device.'
+    note: 'Uses TextEncoder/TextDecoder and browser Base64 APIs locally. Your data never leaves the device.',
+    imageCardTitle: 'Image ↔ Base64',
+    imageIntro: 'Convert images to Base64 data URLs or render Base64 back into an image — processing stays on this device.',
+    imagePlaceholder: 'Paste data:image/... or raw Base64 here',
+    imageSelect: 'Select image',
+    imageHelper: 'Supports PNG, JPG, GIF, WebP, SVG. Files are never uploaded.',
+    imageUnsupported: 'Only image files are supported.',
+    imageRender: 'Render Base64 → Image',
+    imageDownload: 'Download image',
+    imageClear: 'Clear image data',
+    imageInfo: 'Current image: {{name}} • {{type}} • {{size}}',
+    imagePreviewLabel: 'Preview',
+    imageEncoded: 'Image converted to Base64',
+    imageDecoded: 'Base64 rendered as image',
+    imageEncodeError: 'Image conversion failed: {{msg}}',
+    imageDecodeError: 'Unable to render Base64 as image: {{msg}}'
   },
   faq: {
     title: 'FAQ',
