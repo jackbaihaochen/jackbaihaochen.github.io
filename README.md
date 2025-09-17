@@ -38,9 +38,8 @@
 跳转页（兼容直达外链）
 
 - 位于 `public/` 下并随构建产物发布：
-  - `public/404.html` → 重定向至 `/`
-  - `public/faq.html` → 重定向至 `/#/faq`
-  - `public/privacy.html` → 重定向至 `/#/privacy`
-  - `public/tools/json-formatter/index.html` → 重定向至 `/#/json-formatter`
-  - `public/tools/json-yaml/index.html` → 重定向至 `/#/json-yaml`
-  - 这些页面也已内置 favicon 与 manifest 引用。
+- `public/404.html` → 重定向至 `/`
+- `public/faq.html` → 重定向至 `/#/faq`
+- `public/privacy.html` → 重定向至 `/#/privacy`
+- `public/tools/json-formatter/index.html`、`public/tools/json-yaml/index.html`、`public/tools/base64/index.html`：提供可索引的静态说明页，并在文中链接至 `/#/json-formatter` / `/#/json-yaml` / `/#/base64` 交互式工具。
+  - 这些页面内置 favicon、manifest 与结构化数据，便于搜索引擎抓取。

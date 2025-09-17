@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JSON ↔ YAML 转换｜在线双向转换/校验</title>
-    <meta name="description" content="免费在线 JSON 与 YAML 双向转换工具，支持语法校验、格式化、复制下载，全程本地运行不上传。" />
+    <title>Base64 编解码｜文本与图片在线转换</title>
+    <meta name="description" content="免费 Base64 在线工具：文本与图片互转、批量复制、文件下载，纯前端运行保护隐私。" />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://jackbaihaochen.github.io/tools/json-yaml/" />
+    <link rel="canonical" href="https://jackbaihaochen.github.io/tools/base64/" />
     <link rel="icon" type="image/png" href="/web-tool-box-icon.png" />
     <link rel="apple-touch-icon" href="/web-tool-box-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0b1020" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JSON ↔ YAML 转换｜在线双向转换/校验" />
-    <meta property="og:description" content="浏览器端 JSON 与 YAML 双向转换、语法校验、复制与下载，一键完成。" />
-    <meta property="og:url" content="https://jackbaihaochen.github.io/tools/json-yaml/" />
+    <meta property="og:title" content="Base64 编解码｜文本与图片在线转换" />
+    <meta property="og:description" content="在线 Base64 工具，支持文本与图片互转、复制下载与即时预览，全程在浏览器处理。" />
+    <meta property="og:url" content="https://jackbaihaochen.github.io/tools/base64/" />
     <meta property="og:site_name" content="在线工具箱" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
@@ -23,19 +23,19 @@
     <meta property="og:image:height" content="512" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JSON ↔ YAML 转换｜在线双向转换/校验" />
-    <meta name="twitter:description" content="纯前端运行的 JSON ↔ YAML 转换工具，轻松在两种格式之间切换。" />
+    <meta name="twitter:title" content="Base64 编解码｜文本与图片在线转换" />
+    <meta name="twitter:description" content="纯前端 Base64 编码/解码，安全处理文本与图片，支持预览与下载。" />
     <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "JSON ↔ YAML 在线转换",
-        "applicationCategory": "DeveloperApplication",
+        "name": "Base64 编解码在线工具",
+        "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web",
-        "url": "https://jackbaihaochen.github.io/tools/json-yaml/",
-        "description": "浏览器本地运行的 JSON 与 YAML 双向转换和校验工具，支持复制、下载与错误定位。",
+        "url": "https://jackbaihaochen.github.io/tools/base64/",
+        "description": "浏览器本地运行的 Base64 编码与解码工具，可处理文本与图片并支持预览、复制和下载。",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -51,7 +51,7 @@
         --bg-light: #f5f7fb;
         --fg: #101423;
         --fg-light: #f5f7fb;
-        --accent: #13c2c2;
+        --accent: #722ed1;
       }
       body {
         margin: 0;
@@ -101,7 +101,7 @@
         transition: box-shadow 0.2s ease;
       }
       .cta:hover {
-        box-shadow: 0 0 0 4px rgba(19, 194, 194, 0.18);
+        box-shadow: 0 0 0 4px rgba(114, 46, 209, 0.18);
       }
       h2 {
         margin-top: 32px;
@@ -119,6 +119,11 @@
         font-size: 0.9rem;
         color: rgba(16, 20, 35, 0.65);
       }
+      code {
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        padding: 0 4px;
+      }
       @media (max-width: 640px) {
         header {
           padding: 40px 16px;
@@ -134,9 +139,9 @@
   </head>
   <body>
     <header>
-      <h1>JSON ↔ YAML 转换</h1>
-      <p>一站式将 JSON 转换为 YAML，或将 YAML 转换为 JSON，自动保留缩进格式并校验语法，适用于配置文件与后端响应调试。</p>
-      <a class="cta" href="/#/json-yaml">打开交互式转换器</a>
+      <h1>Base64 编解码工具</h1>
+      <p>高效转换文本与图片的 Base64 编码/解码工具，支持批量复制、即时预览与文件下载，适合开发调试与内容发布。</p>
+      <a class="cta" href="/#/base64">进入交互式工具</a>
     </header>
 
     <main>
@@ -144,36 +149,36 @@
         <section>
           <h2>功能亮点</h2>
           <ul>
-            <li>双向转换：JSON → YAML 与 YAML → JSON 均可一键完成。</li>
-            <li>错误定位：语法不合法时会即时提示具体行列。</li>
-            <li>格式安全：支持多行字符串、注释、特殊字符。</li>
-            <li>结果导出：可以复制到剪贴板或下载为 <code>.json</code> / <code>.yaml</code> 文件。</li>
+            <li>文本互转：将字符串编码为 Base64 或解码回原文。</li>
+            <li>图片支持：上传 PNG/JPEG/SVG 等图片，可生成 Base64 字符串并预览还原效果。</li>
+            <li>零上传：所有操作在浏览器本地完成，保障敏感数据安全。</li>
+            <li>便捷导出：一键复制结果或下载图片文件，支持多语言界面。</li>
           </ul>
         </section>
 
         <section>
-          <h2>使用步骤</h2>
+          <h2>操作步骤</h2>
           <ol>
-            <li>输入待转换的 JSON 或 YAML 内容，另一侧可留空。</li>
-            <li>点击相应的「转换」按钮，立即得到格式化结果。</li>
-            <li>如提示语法错误，按照提示位置修正后再次转换。</li>
-            <li>可直接复制结果，或下载为需要的文件格式。</li>
+            <li>在左侧文本框输入或粘贴原文，点击「编码」即可得到 Base64 字符串。</li>
+            <li>反向解码时，在右侧粘贴 Base64 内容，点击「解码」即可恢复原文。</li>
+            <li>若需处理图片，可点击「选择图片」或粘贴 Base64 字符串，支持即时预览校验。</li>
+            <li>处理完成的结果可复制到剪贴板，或下载为文件以便分享。</li>
           </ol>
         </section>
 
         <section>
           <h2>常见问题</h2>
-          <h3>工具是否联网使用？</h3>
-          <p>不需要联网，所有数据仅在浏览器内存中处理。</p>
-          <h3>支持自定义缩进吗？</h3>
-          <p>JSON 输出默认为 2 空格缩进，后续版本将支持自定义选项。</p>
-          <h3>如何在英文或日文界面下使用？</h3>
-          <p>进入交互式转换器后，可在页面右上角切换语言或通过附带的 <code>?lang</code> 参数访问。</p>
+          <h3>Base64 编码是否安全？</h3>
+          <p>Base64 仅用于文本包装或传输，并非加密；若需保密，请另行加密数据。</p>
+          <h3>可以处理多大的文件？</h3>
+          <p>受限于浏览器内存与取值限制，一般建议不超过 5MB 的图片或文本。</p>
+          <h3>如何切换语言？</h3>
+          <p>在交互式工具右上角可切换中文、英文与日文，也可通过 URL 的 <code>?lang=</code> 参数直接访问。</p>
         </section>
       </div>
 
       <footer>
-        <p>查看更多开发小工具，请访问 <a href="https://jackbaihaochen.github.io/">在线工具箱主页</a>。</p>
+        <p>探索更多开发者工具，请访问 <a href="https://jackbaihaochen.github.io/">在线工具箱</a> 首页。</p>
       </footer>
     </main>
   </body>

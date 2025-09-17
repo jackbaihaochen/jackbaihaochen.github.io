@@ -9,6 +9,7 @@ const routes = [
   { loc: '/', changefreq: 'weekly', priority: 0.8 },
   { loc: '/tools/json-formatter/', changefreq: 'weekly', priority: 0.8 },
   { loc: '/tools/json-yaml/', changefreq: 'weekly', priority: 0.8 },
+  { loc: '/tools/base64/', changefreq: 'weekly', priority: 0.7 },
   { loc: '/faq.html', changefreq: 'weekly', priority: 0.6 },
   { loc: '/privacy.html', changefreq: 'monthly', priority: 0.5 },
 ];
@@ -48,4 +49,3 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
-

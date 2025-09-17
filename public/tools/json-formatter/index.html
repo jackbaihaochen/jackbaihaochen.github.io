@@ -1,53 +1,182 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=/#/json-formatter" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JSON 格式化｜在线工具箱</title>
-    <meta name="description" content="在线 JSON 格式化、压缩、校验、复制、下载，纯前端处理，零上传。" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON 格式化｜在线美化/压缩/校验</title>
+    <meta name="description" content="浏览器本地运行的 JSON 格式化工具：美化、压缩、校验、错误定位、下载与复制，隐私友好不上传数据。" />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://jackbaihaochen.github.io/tools/json-formatter/" />
     <link rel="icon" type="image/png" href="/web-tool-box-icon.png" />
     <link rel="apple-touch-icon" href="/web-tool-box-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0b1020" />
-    <!-- Open Graph -->
+
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JSON 格式化｜在线工具箱" />
-    <meta property="og:description" content="在线 JSON 格式化、压缩、校验、复制、下载，纯前端处理，零上传。" />
+    <meta property="og:title" content="JSON 格式化｜在线美化/压缩/校验" />
+    <meta property="og:description" content="浏览器本地运行的 JSON 格式化工具：美化、压缩、校验、错误定位、下载与复制。" />
     <meta property="og:url" content="https://jackbaihaochen.github.io/tools/json-formatter/" />
     <meta property="og:site_name" content="在线工具箱" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
-    <!-- Twitter -->
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JSON 格式化｜在线工具箱" />
-    <meta name="twitter:description" content="在线 JSON 格式化、压缩、校验、复制、下载，纯前端处理，零上传。" />
+    <meta name="twitter:title" content="JSON 格式化｜在线美化/压缩/校验" />
+    <meta name="twitter:description" content="纯前端运行的 JSON 格式化与校验工具，支持大文件与错误定位。" />
     <meta name="twitter:image" content="https://jackbaihaochen.github.io/web-tool-box-icon-512.png" />
-    <!-- JSON-LD -->
-    <meta name="keywords" content="JSON 格式化, JSON 美化, JSON 压缩, JSON 校验, JSON 在线, JSON formatter, JSON beautifier, JSON minify, JSON validator, JSON lint" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "JSON 格式化",
+        "name": "JSON 格式化在线工具",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "url": "https://jackbaihaochen.github.io/tools/json-formatter/"
+        "url": "https://jackbaihaochen.github.io/tools/json-formatter/",
+        "description": "浏览器本地运行的 JSON 格式化/压缩/校验工具，支持错误定位与复制下载。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
     </script>
-    <script>
-      location.replace('/#/json-formatter');
-    </script>
+
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b1020;
+        --bg-light: #f5f7fb;
+        --fg: #101423;
+        --fg-light: #f5f7fb;
+        --accent: #1677ff;
+      }
+      body {
+        margin: 0;
+        font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: var(--fg);
+        background: var(--bg-light);
+      }
+      header {
+        background: var(--bg);
+        color: var(--fg-light);
+        padding: 48px 16px 40px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.4rem;
+      }
+      header p {
+        margin: 16px auto 0;
+        max-width: 680px;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      main {
+        max-width: 900px;
+        margin: -32px auto 0;
+        padding: 0 16px 64px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 12px 40px rgba(11, 16, 32, 0.12);
+        padding: 32px;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 28px;
+        margin-top: 20px;
+        font-weight: 600;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        transition: box-shadow 0.2s ease;
+      }
+      .cta:hover {
+        box-shadow: 0 0 0 4px rgba(22, 119, 255, 0.18);
+      }
+      h2 {
+        margin-top: 32px;
+        font-size: 1.6rem;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ol {
+        padding-left: 20px;
+      }
+      section + section {
+        margin-top: 32px;
+      }
+      footer {
+        margin-top: 48px;
+        font-size: 0.9rem;
+        color: rgba(16, 20, 35, 0.65);
+      }
+      @media (max-width: 640px) {
+        header {
+          padding: 40px 16px;
+        }
+        header h1 {
+          font-size: 2rem;
+        }
+        .card {
+          padding: 24px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <noscript>
-      <p>JSON 格式化工具静态说明页。如未自动跳转，请访问 <a href="/#/json-formatter">/#/json-formatter</a> 使用工具。</p>
-    </noscript>
+    <header>
+      <h1>JSON 格式化（在线）</h1>
+      <p>浏览器本地运行的免费 JSON 格式化工具。一键美化或压缩大文件，自动检测语法错误，并支持复制、下载、粘贴回源代码。</p>
+      <a class="cta" href="/#/json-formatter">立即打开交互式工具</a>
+    </header>
+
+    <main>
+      <div class="card">
+        <section>
+          <h2>功能亮点</h2>
+          <ul>
+            <li>本地处理：不会上传到服务器，满足隐私与安全要求。</li>
+            <li>多种操作：支持美化缩进、压缩、语法校验与错误行列提示。</li>
+            <li>便捷分享：结果可一键复制或下载为 JSON 文件。</li>
+            <li>多语言界面：支持中文、英文、日文切换。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>使用指引</h2>
+          <ol>
+            <li>在工具页面左侧粘贴或输入待处理的 JSON 文本。</li>
+            <li>点击「美化」生成易读格式，或点击「压缩」用于接口传输。</li>
+            <li>若存在语法问题，界面会提示错误位置；修正后再次操作即可。</li>
+            <li>处理完成后，可直接复制结果或下载为 <code>formatted.json</code>。</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>常见问题</h2>
+          <h3>我的数据会被上传或记录吗？</h3>
+          <p>不会。所有操作均在浏览器内存中完成，刷新页面即可清除。</p>
+          <h3>支持多大的 JSON 文件？</h3>
+          <p>常见的配置文件或 API 响应都能即时处理；极大的文件取决于本地浏览器内存。</p>
+          <h3>为什么结果里包含中文字符？</h3>
+          <p>默认不会转义中文，便于人工阅读；可在压缩结果中获得仅 ASCII 的输出。</p>
+        </section>
+      </div>
+
+      <footer>
+        <p>更多开发辅助工具，请访问 <a href="https://jackbaihaochen.github.io/">在线工具箱主页</a>。</p>
+      </footer>
+    </main>
   </body>
-  
 </html>

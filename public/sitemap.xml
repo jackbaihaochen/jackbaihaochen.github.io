@@ -31,6 +31,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jackbaihaochen.github.io/tools/json-yaml/" />
   </url>
   <url>
+    <loc>https://jackbaihaochen.github.io/tools/base64/</loc>
+    <lastmod>2025-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://jackbaihaochen.github.io/tools/base64/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jackbaihaochen.github.io/tools/base64/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://jackbaihaochen.github.io/tools/base64/?lang=ja" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jackbaihaochen.github.io/tools/base64/" />
+  </url>
+  <url>
     <loc>https://jackbaihaochen.github.io/faq.html</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>weekly</changefreq>

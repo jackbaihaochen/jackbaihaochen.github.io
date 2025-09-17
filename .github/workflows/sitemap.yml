@@ -1,0 +1,30 @@
+name: Update sitemap
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate sitemap
+        run: node tools/generate-sitemap.mjs
+      - name: Commit sitemap changes
+        run: |
+          if git diff --quiet; then
+            echo "Sitemap is up to date"
+            exit 0
+          fi
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add sitemap.xml public/sitemap.xml
+          git commit -m "chore: update sitemap"
+          git push
