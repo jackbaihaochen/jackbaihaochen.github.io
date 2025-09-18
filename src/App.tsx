@@ -6,6 +6,7 @@ import JsonYaml from './pages/JsonYaml';
 import Base64 from './pages/Base64';
 import Blog from './pages/Blog';
 import JsonBasics from './pages/blog/JsonBasics';
+import LlmBasics from './pages/blog/LlmBasics';
 import Faq from './pages/Faq';
 import Privacy from './pages/Privacy';
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/json-yaml" element={<JsonYaml />} />
         <Route path="/base64" element={<Base64 />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/llm-intro" element={<LlmBasics />} />
         <Route path="/blog/json-basics" element={<JsonBasics />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/privacy" element={<Privacy />} />

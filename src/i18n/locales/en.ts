@@ -66,6 +66,17 @@ export default {
     readingTimeLabel: 'Reading time',
     moreComing: 'More articles are in the works — stay tuned!',
     articles: {
+      llmBasics: {
+        slug: 'llm-intro',
+        title: 'LLM basics: concepts, use cases, and first steps',
+        description: 'Learn how large language models work, what they excel at, and how to plan a safe pilot project.',
+        summary: 'Understand tokens, context windows, and common deployment patterns before you invest engineering time.',
+        tags: ['LLM', 'AI', 'Getting Started'],
+        published: { iso: '2025-02-14', text: '14 Feb 2025' },
+        updated: { iso: '2025-02-14', text: '14 Feb 2025' },
+        readingTime: '8 min read',
+        heroAlt: 'Abstract neural network diagram generating text'
+      },
       jsonBasics: {
         slug: 'json-basics',
         title: 'JSON essentials: structure, validation, and workflow tips',
@@ -80,6 +91,101 @@ export default {
     }
   },
   articles: {
+    llmBasics: {
+      seoTitle: 'LLM Starter Guide | Concepts, Use Cases, First Steps',
+      seoDescription: 'A beginner-friendly introduction to large language models covering terminology, adoption scenarios, rollout checklist, and safety guidance.',
+      keywords: 'LLM basics, large language model guide, prompt engineering, AI adoption, AI safety checklist',
+      title: 'LLM basics: concepts, use cases, and first steps',
+      heroIntro: 'Curious about large language models but not sure how to begin? This primer gives you the vocabulary and a plan in one sitting.',
+      readingTime: '8 min read',
+      published: 'Published: 14 Feb 2025',
+      updated: 'Updated: 14 Feb 2025',
+      sections: [
+        {
+          heading: 'What is a large language model?',
+          paragraphs: [
+            'A large language model (LLM) is a neural network trained on huge volumes of text so it can predict the next token in a sequence with impressive accuracy.',
+            'It does not "understand" content the way humans do; instead it relies on statistical patterns to generate responses that feel coherent, helpful, or creative.'
+          ]
+        },
+        {
+          heading: 'Key terms to recognise',
+          paragraphs: [
+            'Knowing a few core concepts helps you evaluate vendors and align expectations across the team.'
+          ],
+          list: [
+            'Token: the smallest chunk of text the model consumes. Pricing and context limits are usually measured in tokens.',
+            'Context window: how many tokens the model can consider at once. Larger windows allow longer briefs and richer background material.',
+            'Parameter count: a proxy for model capacity. More parameters often means better quality but higher latency and cost.',
+            'Inference vs. fine-tuning: inference calls the base model as-is, while fine-tuning continues training on your data for customised behaviour.'
+          ]
+        },
+        {
+          heading: 'Where LLMs deliver value today',
+          paragraphs: [
+            'Plenty of repeatable use cases have emerged across individual and enterprise workflows.'
+          ],
+          list: [
+            'Content generation: draft articles, marketing copy, product descriptions, or learning materials.',
+            'Knowledge answers: pair an LLM with internal documents to build smarter search or customer support bots.',
+            'Developer assistance: scaffold sample code, explain runtime errors, or propose test coverage.',
+            'Data cleanup: extract entities, summarise transcripts, and reformat messy input for downstream systems.'
+          ],
+          closing: 'Start with a low-risk, high-visibility scenario so stakeholders can see the return before expanding scope.'
+        },
+        {
+          heading: 'Four steps to launch your first pilot',
+          list: [
+            'Define the pain point and success metrics—time saved, resolution speed, or quality benchmarks.',
+            'Pick a suitable model and integration path. Hosted APIs are perfect for early experiments.',
+            'Assemble high-quality context and example prompts so the model grasps your domain language.',
+            'Set up feedback loops and monitoring to capture output quality and refine prompts continuously.'
+          ],
+          closing: 'Time-box the pilot and review outcomes regularly to avoid open-ended experiments with unclear value.'
+        },
+        {
+          heading: 'Safety, privacy, and governance reminders',
+          paragraphs: [
+            'Adoption success hinges on responsible handling of data and oversight of generated content.'
+          ],
+          list: [
+            'Check compliance certifications (ISO, SOC, GDPR) and sign data-processing agreements where required.',
+            'Classify and redact sensitive data before it leaves your environment, especially personal identifiers.',
+            'Keep humans in the loop for high-impact outputs so errors or hallucinations never reach customers unchecked.',
+            'Version control prompts and model selections to make incident response and audits easier.'
+          ]
+        }
+      ],
+      checklist: {
+        title: 'Pre-flight checklist',
+        items: [
+          'Document the objective and KPI so everyone agrees on what success looks like.',
+          'Prepare 10–20 real examples to test prompts and benchmark improvements.',
+          'Define data-handling rules—what can and cannot be shared with third-party services.',
+          'Plan a fallback path to maintain business continuity if the model output is unavailable or incorrect.'
+        ]
+      },
+      tips: {
+        title: 'Practice tips',
+        items: [
+          'Treat prompts like product copy: version them, review them, and share the best-performing variants.',
+          'Supply structured context (JSON/YAML) alongside prose to anchor the model in accurate facts.'
+        ]
+      },
+      conclusion: {
+        title: 'Keep momentum',
+        paragraphs: [
+          'LLMs are accelerators, not silver bullets. Start narrow, measure results, and scale the wins that matter most.',
+          'When you need to tidy configurations, convert formats, or prepare training snippets, the Web Toolbox apps keep your data clean.'
+        ]
+      },
+      cta: {
+        title: 'Get your data ready',
+        jsonFormatter: 'Clean up JSON payloads',
+        jsonYaml: 'Sync JSON ↔ YAML configs',
+        base64: 'Encode sample assets'
+      }
+    },
     jsonBasics: {
       seoTitle: 'JSON Essentials Guide | Web Toolbox Blog',
       seoDescription: 'Master JSON structure, validation, and developer workflows. Includes a pre-flight checklist and privacy-first tooling tips.',
